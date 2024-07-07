@@ -1,3 +1,4 @@
+import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
@@ -41,7 +42,7 @@ function App() {
             path='/products/:productId'
             element={<ProductDetailsPage productsList={products} />}
           />
-          <Route path='/user' element={<UserLoginPage />} />
+          <Route path='/userLogin' element={<UserLoginPage />} />
           <Route path='/contact' element={<ContactPage />} />
           <Route path='*' element={<NotFoundPage />} /> {/* fallback page */}
         </Routes>

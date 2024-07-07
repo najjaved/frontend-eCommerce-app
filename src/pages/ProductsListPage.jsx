@@ -15,7 +15,7 @@ const ProductsListPage = ({productsList, setProductsList}) =>{
       <h1>Listpage to be styled</h1>
       {productsList && productsList.map((currentProduct) => {
         return (
-          <div className="productCard" key={currentProduct.product_id}>
+          <div className="products-grid" key={currentProduct.product_id}>
             <Link to={`/products/${currentProduct.product_id}`}>
             <Product product = {currentProduct} deletProduct ={handleDelete} />
             </Link>
