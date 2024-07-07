@@ -1,35 +1,23 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { API_URL } from "../helpers/constants";
+import { Link} from "react-router-dom";
 
-const ProductsListPage = () =>{
+import Product from "../components/Product";
 
-  const [products, setProducts] = useState([]);
+const ProductsListPage = ({productsList, setProductsList}) =>{
 
-  const getAllProducts = () => {
-    fetch(`${API_URL}/products`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok " + response.statusText);
-        }
-        return response.json();
-      })
-      .then((data) => setProducts(data))
-      .catch((error) => console.log("Fetch error: ", error));
-  };
-
-  useEffect(() => {
-    getAllProducts();
-  }, []);
+  //deletProduct(product.id) called from Product.jsx
+  const handleDelete = (id) => {
+    setProductsList(productsList.filter(currentProduct => (currentProduct.product_id !== id)));
+  
+  }
 
   return (
     <div className="ProductListPage">
-      <h1>Listpage to be populated</h1>
-      {products.map((product) => {
+      <h1>Listpage to be styled</h1>
+      {productsList && productsList.map((currentProduct) => {
         return (
-          <div className="productCard" key={product.product_id}>
-            <Link to={`/products/${product.product_id}`}>
-              <h3>{product.product_name}</h3>
+          <div className="productCard" key={currentProduct.product_id}>
+            <Link to={`/products/${currentProduct.product_id}`}>
+            <Product product = {currentProduct} deletProduct ={handleDelete} />
             </Link>
           </div>
         );
