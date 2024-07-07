@@ -1,10 +1,15 @@
-const Product = ({product, deletProduct}) => {
+const Product = ({product, deletProduct, editProduct}) => {
 
     const handleDeleteClick = (event) => {
 
       event.preventDefault();
       deletProduct(product.product_id);
     };
+
+    const handleEditClick = (event) => {
+        event.preventDefault();
+        editProduct(product.product_id);
+      };
 
 
     return ( 
@@ -20,7 +25,7 @@ const Product = ({product, deletProduct}) => {
             {product.price <30 && <span style={{color: '#3B82F6', fontWeight:'bold'}}> Great Deal </span>}
             <div className="buttons-div">
               <button className= 'btn-primary' type = "button" onClick={handleDeleteClick} > Delete </button> {/* replace with mantine buttons  */}
-              <button className= 'btn-secondary' type = "button"> Edit </button>
+              <button className= 'btn-secondary' type = "button" onClick={handleEditClick}> Edit </button>
             </div>
           </div>
         </div>

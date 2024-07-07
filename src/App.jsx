@@ -9,6 +9,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import ContactPage from './pages/ContactPage';
 import UserLoginPage from './pages/UserLoginPage';
 import { API_URL } from "./helpers/constants";
+import NewProduct from './components/NewProduct';
 
 function App() {
 
@@ -42,7 +43,11 @@ function App() {
             path='/products/:productId'
             element={<ProductDetailsPage productsList={products} />}
           />
-          <Route path='/userLogin' element={<UserLoginPage />} />
+           <Route
+            path='/products/newProduct'
+            element={<NewProduct/>}
+          />
+          <Route path= '/userLogin' element={<UserLoginPage />} />
           <Route path='/contact' element={<ContactPage />} />
           <Route path='*' element={<NotFoundPage />} /> {/* fallback page */}
         </Routes>
