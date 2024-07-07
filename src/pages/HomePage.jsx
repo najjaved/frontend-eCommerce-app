@@ -22,9 +22,9 @@ function HomePage() {
         </Text>
 
         <Button
-          component="a"
+          component= {Link}
+          to = "/products"
           color="blue"
-          href="/ListPage"
           fullWidth
           mt="md"
           radius="md"
