@@ -5,8 +5,7 @@ import placeholder from "../assets/images/placeholderList.jpeg";
 function HomePage() {
   return (
     <>
-      <h1> Welcome</h1>
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
+      <Card shadow="sm" padding="lg" radius="md" withBorder className="card">
         <Card.Section>
           <Image src={placeholder} height={160} alt="Norway" />
         </Card.Section>
@@ -22,8 +21,8 @@ function HomePage() {
         </Text>
 
         <Button
-          component= {Link}
-          to = "/products"
+          component={Link}
+          to="/products"
           color="blue"
           fullWidth
           mt="md"

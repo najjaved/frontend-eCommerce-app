@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 
 import Product from "../components/Product";
 
