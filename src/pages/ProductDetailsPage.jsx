@@ -51,10 +51,13 @@ const ProductDetailsPage = ({ productsList, handleAddToCart }) => {
         <b>Price:</b> {product.price} Euros
       </Text>
       <Text size="sm" c="dimmed">
+        <b>Discount:</b> {product.discount * 100}%
+      </Text>
+      <Text size="sm" c="dimmed">
         <b>Category:</b> {product.category}
       </Text>
       <Text size="sm" c="dimmed">
-        <b>In Stock:</b> {product.stock}
+        <b>Stock:</b> {product.stock}
       </Text>
       <Card.Section className="ButtonContainer">
         <Button
