@@ -12,47 +12,10 @@ import { API_URL } from "./helpers/constants";
 import NewProduct from "./components/NewProduct";
 import useCart from "./components/useCart";
 import CartPage from "./pages/CartPage";
+import { ShopContextProvider } from "./helpers/context/shop-context";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [allProducts, setAllProducts] = useCart();
-
-  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-  const [cartItem, setCartItem] = useState(cartItems);
-
-  function handleAddToCart(product) {
-    const existingProduct = cartItem.find((item) => item.id === product.id);
-
-    alert("Item added to your cart!");
-
-    if (existingProduct) {
-      existingProduct.quantity += 1;
-    } else {
-      product.quantity = 1;
-      setCartItem([...cartItem, product]);
-    }
-    localStorage.setItem("cart", JSON.stringify(cartItem));
-  }
-
-  function handleDelete(id) {
-    const updatedCartItem = cartItem.filter((item) => item.id !== id);
-    setCartItem(updatedCartItem);
-    localStorage.setItem("cart", JSON.stringify(updatedCartItem));
-  }
-
-  function updateSubtotal(item) {
-    const subtotal = item.price * item.quantity;
-    item.subtotal = subtotal;
-    const updatedAllProduct = allProducts.map((product) =>
-      product.id === item.id ? item : product
-    );
-    setAllProducts(updatedAllProduct);
-    localStorage.setItem("cart", JSON.stringify(updatedAllProduct));
-  }
-  function handleEmptyCart() {
-    localStorage.removeItem("cart");
-    setCartItem([]);
-  }
 
   const getAllProducts = () => {
     fetch(`${API_URL}/products`)
@@ -73,44 +36,35 @@ function App() {
   return (
     <>
       <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/products"
-            element={
-              <ProductsListPage
-                productsList={products}
-                setProductsList={setProducts}
-                handleAddToCart={handleAddToCart}
-              />
-            }
-          />
-          <Route
-            path="/products/:productId"
-            element={
-              <ProductDetailsPage
-                productsList={products}
-                handleAddToCart={handleAddToCart}
-              />
-            }
-          />
-          <Route path="/products/newProduct" element={<NewProduct />} />
-          <Route
-            path="/cart"
-            element={
-              <CartPage
-                cartItems={cartItem}
-                handleDelete={handleDelete}
-                updateSubtotal={updateSubtotal}
-                handleEmptyCart={handleEmptyCart}
-              />
-            }
-          />
-          <Route path="/userLogin" element={<UserLoginPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<NotFoundPage />} /> {/* fallback page */}
-        </Routes>
+        <ShopContextProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/products"
+              element={
+                <ProductsListPage
+                  productsList={products}
+                  setProductsList={setProducts}
+                  handleAddToCart={handleAddToCart}
+                />
+              }
+            />
+            <Route
+              path="/products/:productId"
+              element={
+                <ProductDetailsPage
+                  productsList={products}
+                  handleAddToCart={handleAddToCart}
+                />
+              }
+            />
+            <Route path="/products/newProduct" element={<NewProduct />} />
+            <Route path="/userLogin" element={<UserLoginPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFoundPage />} /> {/* fallback page */}
+          </Routes>
+        </ShopContextProvider>
       </div>
     </>
   );
