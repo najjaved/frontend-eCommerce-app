@@ -10,6 +10,8 @@ import ContactPage from "./pages/ContactPage";
 import UserLoginPage from "./pages/UserLoginPage";
 import { API_URL } from "./helpers/constants";
 import NewProduct from "./components/NewProduct";
+import EditProductPage from './pages/EditProductPage';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -30,12 +32,31 @@ function App() {
     getAllProducts();
   }, []);
 
+   // add newly added product to the list of products
+   const addProduct = (formInputs) => {
+    const newId = uuidv4();
+    const newProduct = formInputs;
+    newProduct.product_id = newId;
+    console.log('newly added product Id: ', newProduct.product_id );
+
+    setProducts((prevProducts) => ([formInputs, ...prevProducts])); //latest entries on top
+  };
+
+  const updateProductsData = (updatedProduct) => {
+    const updatedProducts = products.map((product) =>
+      product.product_id === updatedProduct.product_id ? updatedProduct : product
+    );
+    setProducts(updatedProducts);
+  };
+
+
   return (
     <>
       <div className="App">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+
           <Route
             path="/products"
             element={
@@ -45,11 +66,22 @@ function App() {
               />
             }
           />
+
           <Route
             path="/products/:productId"
             element={<ProductDetailsPage productsList={products} />}
           />
-          <Route path="/products/newProduct" element={<NewProduct />} />
+
+          <Route path="/products/newProduct" 
+          element={
+          <NewProduct productsList ={products} addNewProduct={addProduct}/>} 
+          />
+
+          <Route 
+            path="/products/edit/:productId" 
+            element={<EditProductPage productsList ={products} onUpdate={updateProductsData}/>}
+          /> 
+
           <Route path="/userLogin" element={<UserLoginPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} /> {/* fallback page */}
