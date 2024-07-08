@@ -1,3 +1,5 @@
+import placeholderimg from "../assets/images/placeholderList.jpeg";
+
 const Product = ({ product, deleteProduct, editProduct }) => {
   const handleDeleteClick = (event) => {
     event.preventDefault();
@@ -12,7 +14,7 @@ const Product = ({ product, deleteProduct, editProduct }) => {
   return (
     <div className="product-div">
       <div className="images-div">
-        <img src={product.images[0]} alt="image to be added" />
+        <img src={placeholderimg} alt="image to be added" />
       </div>
       <div className="details-div">
         <p>
