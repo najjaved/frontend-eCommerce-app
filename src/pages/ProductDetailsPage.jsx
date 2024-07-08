@@ -1,17 +1,26 @@
-import React from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
-import placeholderimg from "../assets/images/placeholderList.jpeg";
+import React, { useState } from "react";
+import { useParams, Navigate } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
+import placeholderimg from "../assets/images/placeholderList.jpeg";
 
-const ProductDetailsPage = ({ productsList }) => {
+const ProductDetailsPage = ({ productsList, handleAddToCart }) => {
   const { productId } = useParams();
+  const [productDetails, setProductDetails] = useState(null); // Initialize with null or an empty object
+
+  // Find the product based on productId
   const product = productsList.find(
     (currentProduct) => currentProduct.product_id.toString() === productId
   );
 
+  // Redirect to homepage if product not found
   if (!product) {
     return <Navigate to="/" />;
   }
+
+  // Update productDetails when product is set
+  useState(() => {
+    setProductDetails(product);
+  }, [product]); // Ensure this effect runs when product changes
 
   return (
     <Card
@@ -38,11 +47,25 @@ const ProductDetailsPage = ({ productsList }) => {
       <Text size="sm" c="dimmed">
         {product.description}
       </Text>
+
       <Card.Section className="ButtonContainer">
-        <Button variant="filled" color="indigo" size="lg" radius="md">
+        <Button
+          variant="filled"
+          color="indigo"
+          size="lg"
+          radius="md"
+          to="/products"
+        >
           Back
         </Button>
-        <Button variant="filled" color="lime" size="lg" radius="md">
+
+        <Button
+          onClick={() => handleAddToCart(product)} // Pass product instead of productDetails
+          variant="filled"
+          color="lime"
+          size="lg"
+          radius="md"
+        >
           Add To Cart
         </Button>
       </Card.Section>

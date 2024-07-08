@@ -88,7 +88,12 @@ function App() {
           />
           <Route
             path="/products/:productId"
-            element={<ProductDetailsPage productsList={products} />}
+            element={
+              <ProductDetailsPage
+                productsList={products}
+                handleAddToCart={handleAddToCart}
+              />
+            }
           />
           <Route path="/products/newProduct" element={<NewProduct />} />
           <Route
