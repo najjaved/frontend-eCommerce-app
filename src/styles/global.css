@@ -21,11 +21,12 @@
 
 /* Navbar styles */
 .navbar {
-  background-color: cornflowerblue;
+  background-color: rgb(26, 101, 67);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  display: flex;
   padding: 10px;
 }
 
