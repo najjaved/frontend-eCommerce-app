@@ -7,7 +7,7 @@ function HomePage() {
     <>
       <Card shadow="sm" padding="lg" radius="md" withBorder className="card">
         <Card.Section>
-          <Image src={placeholder} height={160} alt="Norway" />
+          <Image src={placeholder} height={500} alt="Norway" />
         </Card.Section>
 
         <Group justify="space-between" mt="md" mb="xs">
@@ -18,6 +18,8 @@ function HomePage() {
         <Text size="sm" c="dimmed">
           Nature has everything it needs to heal you and prevent you from
           deteriorating :D BLABLABLA
+          <br />
+          <b>price:</b> 5555 millions
         </Text>
 
         <Button
