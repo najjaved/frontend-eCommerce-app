@@ -7,17 +7,19 @@ function HomePage() {
     <>
       <Card shadow="sm" padding="lg" radius="md" withBorder className="card">
         <Card.Section>
-          <Image src={placeholder} height={160} alt="Norway" />
+          <Image src={placeholder} height={500} alt="Norway" />
         </Card.Section>
 
         <Group justify="space-between" mt="md" mb="xs">
-          <Text fw={500}>Herbal Product List</Text>
+          <Text fw={500}>We have great products waiting for you!</Text>
           <Badge color="pink">On Sale</Badge>
         </Group>
 
         <Text size="sm" c="dimmed">
           Nature has everything it needs to heal you and prevent you from
           deteriorating :D BLABLABLA
+          <br />
+          <b>price:</b> priceless
         </Text>
 
         <Button
