@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Button } from "@mantine/core";
 
 function CartPage({
   cartItems,
@@ -17,7 +17,7 @@ function CartPage({
   );
 
   return (
-    <div className="page-container">
+    <div className="cart-container">
       <div className="list-content">
         <h1>What are you buying to make your life better?</h1>
 
@@ -39,7 +39,7 @@ function CartPage({
                 {cartItems.map((item) => (
                   <tr key={item.id} className="product">
                     <td className="cart-img">
-                      <img src={item.image}></img>
+                      <img src={item.image} alt={item.title} />
                     </td>
                     <td className="name">{item.title}</td>
 
@@ -76,9 +76,8 @@ function CartPage({
                     </td>
                   </tr>
                 ))}
-                <tr>
+                <tr key="total-row">
                   <td></td>
-
                   <td></td>
                   <td></td>
                   <td className="total-title">
@@ -92,20 +91,39 @@ function CartPage({
               </tbody>
             </table>
           ) : (
-            <h2 className="empty-cart">
-              There's nothing in your cart. Go look for products
-            </h2>
+            <div className="flexcenter">
+              <img
+                src="https://media.giphy.com/media/RoFXqXWN639Qs/giphy.gif"
+                alt="Empty Cart GIF"
+              />
+              <h3 className="empty-cart">
+                There's nothing in your cart. Go look for products
+              </h3>
+            </div>
           )}
         </div>
-        <div className="cart-ctas">
-          <Link to="/">
-            <button className="btn-go-shopping">Continue shopping</button>
-          </Link>
+        <section className="ButtonContainer">
+          <Button
+            component="a"
+            variant="filled"
+            color="indigo"
+            size="lg"
+            radius="md"
+            href="/products"
+          >
+            Continue Shopping
+          </Button>
 
-          <button className="btn-dont-buy" onClick={handleEmptyCart}>
-            Don't buy
-          </button>
-        </div>
+          <Button
+            variant="filled"
+            color="lime"
+            size="lg"
+            radius="md"
+            onClick={handleEmptyCart}
+          >
+            Fake-Buy
+          </Button>
+        </section>
       </div>
     </div>
   );

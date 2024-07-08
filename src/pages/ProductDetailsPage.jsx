@@ -40,7 +40,7 @@ const ProductDetailsPage = ({ productsList, handleAddToCart }) => {
       </Card.Section>
 
       <Group justify="space-between" mt="md" mb="xs">
-        <Text fw={500}>{product.title}</Text>
+        <Text fw={500}>{product.product_name}</Text>
         <Badge color="pink">On Sale</Badge>
       </Group>
 

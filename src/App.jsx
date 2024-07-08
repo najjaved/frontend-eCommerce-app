@@ -15,7 +15,7 @@ import CartPage from "./pages/CartPage";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [allProducts, setAllProduct] = useCart();
+  const [allProducts, setAllProducts] = useCart();
 
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
   const [cartItem, setCartItem] = useState(cartItems);
@@ -46,7 +46,7 @@ function App() {
     const updatedAllProduct = allProducts.map((product) =>
       product.id === item.id ? item : product
     );
-    setAllProduct(updatedAllProduct);
+    setAllProducts(updatedAllProduct);
     localStorage.setItem("cart", JSON.stringify(updatedAllProduct));
   }
   function handleEmptyCart() {
