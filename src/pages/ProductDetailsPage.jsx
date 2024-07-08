@@ -47,7 +47,15 @@ const ProductDetailsPage = ({ productsList, handleAddToCart }) => {
       <Text size="sm" c="dimmed">
         {product.description}
       </Text>
-
+      <Text size="sm" c="dimmed">
+        <b>Price:</b> {product.price} Euros
+      </Text>
+      <Text size="sm" c="dimmed">
+        <b>Category:</b> {product.category}
+      </Text>
+      <Text size="sm" c="dimmed">
+        <b>In Stock:</b> {product.stock}
+      </Text>
       <Card.Section className="ButtonContainer">
         <Button
           variant="filled"
