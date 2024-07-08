@@ -14,7 +14,7 @@ const Product = ({ product, deleteProduct, editProduct }) => {
   return (
     <div className="product-div">
       <div className="images-div">
-        <img src={placeholderimg} alt="image to be added" />
+        <img src={placeholderimg} alt="image to be added" /> {/* product.images[0] */}
       </div>
       <div className="details-div">
         <p>

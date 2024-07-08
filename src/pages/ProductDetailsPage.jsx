@@ -6,7 +6,7 @@ import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 const ProductDetailsPage = ({ productsList }) => {
   const { productId } = useParams();
   const product = productsList.find(
-    (currentProduct) => currentProduct.product_id.toString() === productId
+    (currentProduct) => currentProduct.id.toString() === productId
   );
 
   if (!product) {

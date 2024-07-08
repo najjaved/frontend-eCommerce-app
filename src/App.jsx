@@ -36,15 +36,15 @@ function App() {
    const addProduct = (formInputs) => {
     const newId = uuidv4();
     const newProduct = formInputs;
-    newProduct.product_id = newId;
-    console.log('newly added product Id: ', newProduct.product_id );
+    newProduct.id = newId;
+    console.log('newly added product Id: ', newProduct.id );
 
     setProducts((prevProducts) => ([formInputs, ...prevProducts])); //latest entries on top
   };
 
   const updateProductsData = (updatedProduct) => {
     const updatedProducts = products.map((product) =>
-      product.product_id === updatedProduct.product_id ? updatedProduct : product
+      product.id === updatedProduct.id ? updatedProduct : product
     );
     setProducts(updatedProducts);
   };

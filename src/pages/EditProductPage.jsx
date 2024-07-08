@@ -7,7 +7,7 @@ const EditProductPage = ({productsList, onUpdate }) => {
     const navigate = useNavigate();
 
 
-    const product = productsList.find((currentProduct) => currentProduct.product_id.toString() === productId);
+    const product = productsList.find((currentProduct) => currentProduct.id.toString() === productId);
     if(!product){
       console.log('product not found in products list',product );
       return <Navigate to= {`/products/${productId}`} />;
@@ -52,7 +52,7 @@ const EditProductPage = ({productsList, onUpdate }) => {
 
             <label>
               Title
-              <input name='title' value={updatedProduct.product_name} onChange={handleChange} />
+              <input name='title' value={updatedProduct.name} onChange={handleChange} />
             </label>
     
             <label>

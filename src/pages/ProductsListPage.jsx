@@ -9,7 +9,7 @@ const ProductsListPage = ({ productsList, setProductsList }) => {
   //deletProduct(product.id) called from Product.jsx
   const handleDelete = (id) => {
     setProductsList(
-      productsList.filter((currentProduct) => currentProduct.product_id !== id)
+      productsList.filter((currentProduct) => currentProduct.id !== id)
     );
   };
 
@@ -26,8 +26,8 @@ const ProductsListPage = ({ productsList, setProductsList }) => {
       {productsList &&
         productsList.map((currentProduct) => {
           return (
-            <div className="products-grid" key={currentProduct.product_id}>
-              <Link to={`/products/${currentProduct.product_id}`}>
+            <div className="products-grid" key={currentProduct.id}>
+              <Link to={`/products/${currentProduct.id}`}>
                 <Product
                   product={currentProduct}
                   deleteProduct={handleDelete}

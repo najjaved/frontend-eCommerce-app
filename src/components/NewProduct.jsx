@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import genericImg from "../assets/images/genericIimage.jpg";
 import { API_URL } from '../helpers/constants';
+import { v4 as uuidv4 } from 'uuid';
 
 const resetInitialStates = () => {
   return {
@@ -11,7 +12,7 @@ const resetInitialStates = () => {
     price: 0,
     discount: 0,
     stock: 0,
-    images: "https://plus.unsplash.com/premium_photo-1694412516047-c9ef201f9564?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aGVyYmFsJTIwcHJvY3V0c3xlbnwwfHwwfHx8MA%3D%3D" // toDo: update images ['', '']
+    images: ["https://plus.unsplash.com/premium_photo-1694412516047-c9ef201f9564?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aGVyYmFsJTIwcHJvY3V0c3xlbnwwfHwwfHx8MA%3D%3D"] // toDo: update images ['', '']
   };
 };
 
@@ -21,7 +22,10 @@ const NewProduct = ({ addNewProduct }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    //const newId = uuidv4();
+    //newProduct.id = newId;
     const payload = newProduct;
+    console.log("Data sent to backsent", payload)
 
     try{
         const response = await fetch(`${API_URL}/products`, {
@@ -29,6 +33,7 @@ const NewProduct = ({ addNewProduct }) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         });
+        console.log('API response: ', response);
         if(response.status === 201){
             const newProductData = await response.json();
             console.log('parsed new product data: ', newProductData);
@@ -75,7 +80,7 @@ const NewProduct = ({ addNewProduct }) => {
               
               <label>
                 Title
-                <input name="title" value={newProduct.product_name} onChange={handleChange} />
+                <input name="title" value={newProduct.name} onChange={handleChange} />
               </label>
 
               <label>
