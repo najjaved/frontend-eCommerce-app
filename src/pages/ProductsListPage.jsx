@@ -14,7 +14,7 @@ const ProductsListPage = ({ productsList, setProductsList }) => {
   };
 
   const handleEdit = (id) => {
-    navigate(`/products/edit/${id}`); // Navigate to edit page
+    navigate(`/products/edit/${id}`); // Navigate to edit page 
   };
 
   return (
@@ -32,7 +32,7 @@ const ProductsListPage = ({ productsList, setProductsList }) => {
                   product={currentProduct}
                   deleteProduct={handleDelete}
                   editProduct={handleEdit}
-                />
+                /> 
               </Link>
             </div>
           );

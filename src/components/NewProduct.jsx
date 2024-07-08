@@ -2,7 +2,6 @@ import { Fragment, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import genericImg from "../assets/images/genericIimage.jpg";
 import { API_URL } from '../helpers/constants';
-import { v4 as uuidv4 } from 'uuid';
 
 const resetInitialStates = () => {
   return {
@@ -12,18 +11,16 @@ const resetInitialStates = () => {
     price: 0,
     discount: 0,
     stock: 0,
-    images: ["https://plus.unsplash.com/premium_photo-1694412516047-c9ef201f9564?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aGVyYmFsJTIwcHJvY3V0c3xlbnwwfHwwfHx8MA%3D%3D"] // toDo: update images ['', '']
+    images: ["https://plus.unsplash.com/premium_photo-1694412516047-c9ef201f9564?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aGVyYmFsJTIwcHJvY3V0c3xlbnwwfHwwfHx8MA%3D%3D"] // toDo: update images ['', ''], for now used this image as a placeholder
   };
 };
 
-const NewProduct = ({ addNewProduct }) => {
+const NewProduct = () => {
   const navigate = useNavigate();
   const [newProduct, setNewProduct] = useState(resetInitialStates());
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    //const newId = uuidv4();
-    //newProduct.id = newId;
     const payload = newProduct;
     console.log("Data sent to backsent", payload)
 
@@ -37,7 +34,6 @@ const NewProduct = ({ addNewProduct }) => {
         if(response.status === 201){
             const newProductData = await response.json();
             console.log('parsed new product data: ', newProductData);
-            //addNewProduct(newProduct); // add newly added product to the list of products  
             setNewProduct(resetInitialStates()); // reinitialize entries after submitting form & navigate back to the ProductsListPage
             navigate('/products'); 
         }    

@@ -3,12 +3,12 @@ import placeholderimg from "../assets/images/placeholderList.jpeg";
 const Product = ({ product, deleteProduct, editProduct }) => {
   const handleDeleteClick = (event) => {
     event.preventDefault();
-    deleteProduct(product.product_id);
+    deleteProduct(product.id);
   };
 
   const handleEditClick = (event) => {
     event.preventDefault();
-    editProduct(product.product_id);
+    editProduct(product.id);
   };
 
   return (

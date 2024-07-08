@@ -11,7 +11,6 @@ import UserLoginPage from "./pages/UserLoginPage";
 import { API_URL } from "./helpers/constants";
 import NewProduct from "./components/NewProduct";
 import EditProductPage from './pages/EditProductPage';
-import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -31,16 +30,6 @@ function App() {
   useEffect(() => {
     getAllProducts();
   }, []);
-
-   // add newly added product to the list of products
-   const addProduct = (formInputs) => {
-    const newId = uuidv4();
-    const newProduct = formInputs;
-    newProduct.id = newId;
-    console.log('newly added product Id: ', newProduct.id );
-
-    setProducts((prevProducts) => ([formInputs, ...prevProducts])); //latest entries on top
-  };
 
   const updateProductsData = (updatedProduct) => {
     const updatedProducts = products.map((product) =>
@@ -74,7 +63,7 @@ function App() {
 
           <Route path="/products/newProduct" 
           element={
-          <NewProduct productsList ={products} addNewProduct={addProduct}/>} 
+          <NewProduct productsList ={products} />} 
           />
 
           <Route 
