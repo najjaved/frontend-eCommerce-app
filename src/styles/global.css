@@ -1,3 +1,7 @@
+:root {
+  --navbar-height: 70px; /* Adjust this value according to the actual height of your navbar */
+}
+
 .ButtonContainer {
   display: flex;
   gap: 10px;
@@ -5,10 +9,12 @@
 }
 
 .card {
-  margin: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 /* CSS reset */
 * {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -17,6 +23,7 @@
 .App {
   font-family: "Roboto", sans-serif;
   background-color: #ffffff; /* Light background */
+  margin-top: var(--navbar-height); /* Add top margin to the main content */
 }
 
 /* Navbar styles */
@@ -25,6 +32,8 @@
   position: fixed;
   top: 0;
   left: 0;
+  align-items: center;
+
   width: 100%;
   display: flex;
   padding: 10px;

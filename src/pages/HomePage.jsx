@@ -11,7 +11,7 @@ function HomePage() {
         </Card.Section>
 
         <Group justify="space-between" mt="md" mb="xs">
-          <Text fw={500}>Herbal Product List</Text>
+          <Text fw={500}>We have great products waiting for you!</Text>
           <Badge color="pink">On Sale</Badge>
         </Group>
 
@@ -19,7 +19,7 @@ function HomePage() {
           Nature has everything it needs to heal you and prevent you from
           deteriorating :D BLABLABLA
           <br />
-          <b>price:</b> 5555 millions
+          <b>price:</b> priceless
         </Text>
 
         <Button
