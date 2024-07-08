@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import genericImg from "../assets/images/genericIimage.jpg";
+import { API_URL } from '../helpers/constants';
 
 const resetInitialStates = () => {
   return {
@@ -18,12 +19,27 @@ const NewProduct = ({ addNewProduct }) => {
   const navigate = useNavigate();
   const [newProduct, setNewProduct] = useState(resetInitialStates());
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const payload = newProduct;
 
-    addNewProduct(newProduct); // add newly added product to the list of products  
-    setNewProduct(resetInitialStates()); // reinitialize entries after submitting form & navigate back to the ProductsListPage
-    navigate('/products'); 
+    try{
+        const response = await fetch(`${API_URL}/products`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        if(response.status === 201){
+            const newProductData = await response.json();
+            console.log('parsed new product data: ', newProductData);
+            //addNewProduct(newProduct); // add newly added product to the list of products  
+            setNewProduct(resetInitialStates()); // reinitialize entries after submitting form & navigate back to the ProductsListPage
+            navigate('/products'); 
+        }    
+    }
+    catch (error){
+        console.log(error);
+    }
 
   };
 
@@ -80,9 +96,9 @@ const NewProduct = ({ addNewProduct }) => {
                   <input name="images" value={newProduct.images} onChange={handleChange} />
                 </label>
                 
-                <label>
+                <label style= {{display:'flex', justifyContent: 'space-between'}}>
                   Description
-                  <input name="description" value={newProduct.description} onChange={handleChange} />
+                  <textarea name="description" rows = {5} cols = {25} value={newProduct.description} onChange={handleChange} />
                 </label>
 
 
