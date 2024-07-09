@@ -124,9 +124,8 @@
 }
 
 .images-div img {
-  margin-top: 10px;
   width: 100%;
-  height: auto;
+  height: 400px;
   display: block;
 }
 
