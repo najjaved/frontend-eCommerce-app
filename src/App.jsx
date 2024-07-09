@@ -45,7 +45,7 @@ function App() {
           <Route path="/products/newProduct" element={<NewProduct />} />
           <Route 
             path="/products/edit/:productId" 
-            element={<EditProductPage productsList ={products} onUpdate={updateProductsData}/>}
+            //element={<EditProductPage productsList ={products} onUpdate={updateProductsData}/>}
           /> 
           {/* <Route path="/userLogin" element={<UserLoginPage />} /> */}
           <Route path="/contact" element={<ContactPage />} />
