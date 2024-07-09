@@ -1,4 +1,5 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import { API_URL } from "../constants";
 
 export const ShopContext = createContext(null);
 

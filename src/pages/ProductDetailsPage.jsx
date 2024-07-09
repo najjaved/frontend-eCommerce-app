@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 import placeholderimg from "../assets/images/placeholderList.jpeg";
+import { useContext } from "react";
+import { ShopContext } from "../helpers/context/shop-context";
 
-const ProductDetailsPage = ({ productsList, handleAddToCart }) => {
+const ProductDetailsPage = ({ handleAddToCart }) => {
+  const { products } = useContext(ShopContext);
+
   const { productId } = useParams();
+
   const [productDetails, setProductDetails] = useState(null); // Initialize with null or an empty object
 
   // Find the product based on productId
-  const product = productsList.find(
+  const product = products.find(
     (currentProduct) => currentProduct.id.toString() === productId
   );
 

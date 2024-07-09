@@ -26,9 +26,9 @@ function App() {
             path="/products"
             element={
               <ProductsListPage
-                productsList={products}
+              /*  productsList={products}
                 setProductsList={setProducts}
-                handleAddToCart={handleAddToCart}
+                handleAddToCart={handleAddToCart} */
               />
             }
           />
@@ -36,8 +36,8 @@ function App() {
             path="/products/:productId"
             element={
               <ProductDetailsPage
-                productsList={products}
-                handleAddToCart={handleAddToCart}
+              /*  productsList={products}
+                handleAddToCart={handleAddToCart} */
               />
             }
           />
