@@ -3,8 +3,8 @@ import { ShopContext } from "../helpers/context/shop-context";
 import CartItem from "../components/CartItem"; // Adjust the path as necessary
 
 const Cart = () => {
-  const { products, cartItems } = useContext(ShopContext);
-
+  const { getTotalCartAmount, products, cartItems } = useContext(ShopContext);
+  const totalAmount = getTotalCartAmount();
   return (
     <div className="cart">
       <div>
@@ -17,6 +17,11 @@ const Cart = () => {
           }
           return null;
         })}
+      </div>
+      <div className="checkout">
+        <p>Subtotal: {totalAmount}</p>
+        <button> continue shopping </button>
+        <button> fake pay & reset </button>
       </div>
     </div>
   );

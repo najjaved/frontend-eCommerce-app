@@ -58,6 +58,17 @@ export const ShopContextProvider = ({ children }) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
 
+  const getTotalCartAmount = () => {
+    let totalAmount = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo = products.find((product) => product.id === Number(item));
+        totalAmount += cartItems[item] * itemInfo.price;
+      }
+    }
+    return totalAmount;
+  };
+
   return (
     <ShopContext.Provider
       value={{
@@ -67,6 +78,7 @@ export const ShopContextProvider = ({ children }) => {
         removeFromCart,
         getAllProducts,
         updateCartItemCount,
+        getTotalCartAmount,
       }}
     >
       {children}
