@@ -45,7 +45,7 @@ const ProductDetailsPage = ({ handleAddToCart }) => {
       </Card.Section>
 
       <Group justify="space-between" mt="md" mb="xs">
-        <Text fw={500}>{product.product_name}</Text>
+        <Text fw={500}>{product.name}</Text>
         <Badge color="pink">On Sale</Badge>
       </Group>
 
@@ -53,6 +53,18 @@ const ProductDetailsPage = ({ handleAddToCart }) => {
         {product.description}
       </Text>
 
+      <Text size="sm" c="dimmed">
+        <b>Price: </b>
+        {product.price}€
+      </Text>
+      <Text size="sm" c="dimmed">
+        <b>Stock: </b>
+        {product.stock}
+      </Text>
+      <Text size="sm" c="dimmed">
+        <b>Discount: </b>
+        {product.discount * 10}
+      </Text>
       <Card.Section className="ButtonContainer">
         <Button
           variant="filled"
