@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
 import CartItem from "../components/CartItem"; // Adjust the path as necessary
+import { Button } from "@mantine/core";
 
 const Cart = () => {
   const { getTotalCartAmount, products, cartItems } = useContext(ShopContext);
@@ -19,9 +20,24 @@ const Cart = () => {
         })}
       </div>
       <div className="checkout">
-        <p>Subtotal: {totalAmount}</p>
-        <button> continue shopping </button>
-        <button> fake pay & reset </button>
+        {totalAmount > 0 ? (
+          <p>Subtotal: {totalAmount}</p>
+        ) : (
+          <h1>Your Shopping Cart is empty</h1>
+        )}
+        <Button
+          variant="filled"
+          color="indigo"
+          size="lg"
+          radius="md"
+          component="a"
+          href="/products"
+        >
+          Continue Shopping
+        </Button>{" "}
+        <Button variant="filled" color="indigo" size="lg" radius="md">
+          Fake Pay & Reset
+        </Button>
       </div>
     </div>
   );
