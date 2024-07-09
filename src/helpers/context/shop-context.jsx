@@ -15,16 +15,18 @@ export const ShopContextProvider = ({ children }) => {
     return cart;
   };
 
-  const getAllProducts = () => {
-    fetch(`${API_URL}/products`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok " + response.statusText);
-        }
-        return response.json();
-      })
-      .then((data) => setProducts(data))
-      .catch((error) => console.log("Fetch error: ", error));
+  const getAllProducts = async () => {
+    try {
+      const response = await fetch(`${API_URL}/products`);
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      const data = await response.json();
+      setProducts(data);
+      console.log(data); // does show all
+    } catch (error) {
+      console.log("Fetch error: ", error);
+    }
   };
 
   useEffect(() => {
@@ -32,6 +34,7 @@ export const ShopContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    console.log(products); // Log products when they are updated
     setCartItems(getDefaultCart());
   }, [products]);
 

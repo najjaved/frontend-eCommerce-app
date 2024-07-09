@@ -1,6 +1,11 @@
 import placeholderimg from "../assets/images/placeholderList.jpeg";
+import { useContext } from "react";
+import { ShopContext } from "../helpers/context/shop-context";
+import { Button } from "@mantine/core";
 
-const Product = ({ product, deleteProduct, editProduct }) => {
+const Product = ({ product, deleteProduct, editProduct, productId }) => {
+  const { addToCart, products } = useContext(ShopContext); //import all things context we need
+
   const handleDeleteClick = (event) => {
     event.preventDefault();
     deleteProduct(product.id);
@@ -53,6 +58,25 @@ const Product = ({ product, deleteProduct, editProduct }) => {
             {" "}
             Edit{" "}
           </button>
+          <Button
+            onClick={() => addToCart(product.id)}
+            variant="filled"
+            color="lime"
+            size="lg"
+            radius="md"
+          >
+            Add To Cart
+          </Button>
+          <Button
+            variant="filled"
+            color="indigo"
+            size="lg"
+            radius="md"
+            component="a"
+            href={`/products/${productId}`}
+          >
+            Product Details
+          </Button>
         </div>
       </div>
     </div>

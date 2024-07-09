@@ -31,13 +31,12 @@ const ProductsListPage = ({ setProductsList }) => {
         products.map((currentProduct) => {
           return (
             <div className="products-grid" key={currentProduct.id}>
-              <Link to={`/products/${currentProduct.id}`}>
-                <Product
-                  product={currentProduct}
-                  deleteProduct={handleDelete}
-                  editProduct={handleEdit}
-                />
-              </Link>
+              <Product
+                product={currentProduct}
+                deleteProduct={handleDelete}
+                editProduct={handleEdit}
+                productId={currentProduct.id}
+              />
             </div>
           );
         })}

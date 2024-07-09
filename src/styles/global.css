@@ -107,6 +107,7 @@
 }
 .product-div {
   margin: 20px;
+  width: fit-content;
   display: flex;
   justify-content: left;
 
@@ -218,12 +219,11 @@
   border-color: #646cff;
 }
 
-.form-page{
+.form-page {
   margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .form {
@@ -236,22 +236,20 @@
   background-color: #f0f0f0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
 }
 
 .content-div {
   display: flex;
-
 }
 
-.main-info, .description-div {
+.main-info,
+.description-div {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.description-div{
+.description-div {
   margin-left: 30px;
-
 }
 
 .form label {

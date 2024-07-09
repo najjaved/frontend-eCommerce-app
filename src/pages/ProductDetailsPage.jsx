@@ -1,31 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 import placeholderimg from "../assets/images/placeholderList.jpeg";
-import { useContext } from "react"; //import context hook
 import { ShopContext } from "../helpers/context/shop-context"; // import context file
 
 const ProductDetailsPage = () => {
-  const { products, addToCart, removeFromCart } = useContext(ShopContext); //import all things context we need
+  const { products, addToCart } = useContext(ShopContext); //import all things context we need
+  console.log("Products from the context: ", products);
 
   const { productId } = useParams();
+  console.log("productId is:", productId);
 
   const [productDetails, setProductDetails] = useState(null); // Initialize with null or an empty object
 
-  // Find the product based on productId
-  const product = products.find(
-    (currentProduct) => currentProduct.id.toString() === productId
-  );
-
-  // Redirect to homepage if product not found
-  if (!product) {
-    return <Navigate to="/" />;
-  }
-
-  // Update productDetails when product is set
-  useState(() => {
+  // Update productDetails when products change
+  useEffect(() => {
+    const product = products.find(
+      (currentProduct) => currentProduct.id.toString() === productId
+    );
     setProductDetails(product);
-  }, [product]); // Ensure this effect runs when product changes
+  }, [products, productId]); // Ensure this effect runs when products or productId change
+
+  if (!productDetails) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Card
@@ -45,25 +43,25 @@ const ProductDetailsPage = () => {
       </Card.Section>
 
       <Group justify="space-between" mt="md" mb="xs">
-        <Text fw={500}>{product.name}</Text>
+        <Text fw={500}>{productDetails.name}</Text>
         <Badge color="pink">On Sale</Badge>
       </Group>
 
       <Text size="sm" c="dimmed">
-        {product.description}
+        {productDetails.description}
       </Text>
 
       <Text size="sm" c="dimmed">
         <b>Price: </b>
-        {product.price}€
+        {productDetails.price}€
       </Text>
       <Text size="sm" c="dimmed">
         <b>Stock: </b>
-        {product.stock}
+        {productDetails.stock}
       </Text>
       <Text size="sm" c="dimmed">
         <b>Discount: </b>
-        {product.discount * 100}%
+        {productDetails.discount * 100}%
       </Text>
       <Card.Section className="ButtonContainer">
         <Button
@@ -78,7 +76,7 @@ const ProductDetailsPage = () => {
         </Button>
 
         <Button
-          onClick={() => addToCart(product.id)}
+          onClick={() => addToCart(productDetails.id)}
           variant="filled"
           color="lime"
           size="lg"
