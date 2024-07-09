@@ -5,13 +5,13 @@ import Product from "../components/Product";
 import { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
 
-const ProductsListPage = ({ setProductsList }) => {
+const ProductsListPage = () => {
   const { products, getAllProducts } = useContext(ShopContext);
 
   const navigate = useNavigate();
 
   //deletProduct(product.id) called from Product.jsx
-  const handleDelete = (id) => {
+  /* const handleDelete = (id) => {
     setProductsList(
       products.filter((currentProduct) => currentProduct.id !== id)
     );
@@ -20,7 +20,7 @@ const ProductsListPage = ({ setProductsList }) => {
   const handleEdit = (id) => {
     navigate(`/products/edit/${id}`); // Navigate to edit page
   };
-
+ */
   return (
     <div className="ProductListPage">
       <h1>Listpage to be styled</h1>
@@ -33,8 +33,8 @@ const ProductsListPage = ({ setProductsList }) => {
             <div className="products-grid" key={currentProduct.id}>
               <Product
                 product={currentProduct}
-                deleteProduct={handleDelete}
-                editProduct={handleEdit}
+                /*     deleteProduct={handleDelete}
+                editProduct={handleEdit} */
                 productId={currentProduct.id}
               />
             </div>

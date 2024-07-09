@@ -23,7 +23,6 @@ export const ShopContextProvider = ({ children }) => {
       }
       const data = await response.json();
       setProducts(data);
-      console.log(data); // does show all
     } catch (error) {
       console.log("Fetch error: ", error);
     }
@@ -34,7 +33,10 @@ export const ShopContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    console.log(products); // Log products when they are updated
+    console.log(
+      "this is the products state right now inside the context",
+      products
+    ); // Log products when they are updated
     setCartItems(getDefaultCart());
   }, [products]);
 
