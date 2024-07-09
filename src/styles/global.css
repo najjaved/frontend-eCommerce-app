@@ -1,6 +1,11 @@
 :root {
   --navbar-height: 70px; /* Adjust this value according to the actual height of your navbar */
 }
+.countHandler input {
+  width: 40px;
+  text-align: center;
+  font-weight: bolder;
+}
 
 .ButtonContainer {
   display: flex;

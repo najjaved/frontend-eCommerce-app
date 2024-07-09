@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
 
 export const CartItem = ({ product }) => {
-  const { addToCart, products, cartItems } = useContext(ShopContext);
+  const { addToCart, removeFromCart, cartItems } = useContext(ShopContext);
   return (
     <div className="product-div">
       <div className="images-div">
@@ -23,6 +23,11 @@ export const CartItem = ({ product }) => {
         <p>
           <b>Discount:</b> {product.discount * 100}%
         </p>
+        <div className="countHandler">
+          <button onClick={() => removeFromCart(product.id)}> - </button>
+          <input value={cartItems[product.id]} />
+          <button onClick={() => addToCart(product.id)}> + </button>
+        </div>
         {product.price < 30 && (
           <span style={{ color: "#3B82F6", fontWeight: "bold" }}>
             Great Deal
