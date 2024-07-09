@@ -54,7 +54,6 @@ export const ShopContextProvider = ({ children }) => {
     }));
   };
 
-  console.log(cartItems);
   return (
     <ShopContext.Provider
       value={{ products, cartItems, addToCart, removeFromCart, getAllProducts }}

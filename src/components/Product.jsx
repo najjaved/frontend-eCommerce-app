@@ -4,7 +4,7 @@ import { ShopContext } from "../helpers/context/shop-context";
 import { Button } from "@mantine/core";
 
 const Product = ({ product, deleteProduct, editProduct, productId }) => {
-  const { addToCart, products } = useContext(ShopContext); //import all things context we need
+  const { addToCart, products, cartItems } = useContext(ShopContext); //import all things context we need
 
   const handleDeleteClick = (event) => {
     event.preventDefault();
@@ -16,6 +16,7 @@ const Product = ({ product, deleteProduct, editProduct, productId }) => {
     editProduct(product.id);
   };
 
+  const cartItemAmount = cartItems[product.id];
   return (
     <div className="product-div">
       <div className="images-div">
@@ -65,7 +66,7 @@ const Product = ({ product, deleteProduct, editProduct, productId }) => {
             size="lg"
             radius="md"
           >
-            Add To Cart
+            Add To Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}
           </Button>
           <Button
             variant="filled"
