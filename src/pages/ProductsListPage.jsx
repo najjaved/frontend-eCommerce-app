@@ -27,19 +27,21 @@ const ProductsListPage = () => {
       <Link to="/products/newProduct">
         <h2>Add Product</h2>
       </Link>
-      {products &&
-        products.map((currentProduct) => {
-          return (
-            <div className="products-grid" key={currentProduct.id}>
-              <Product
-                product={currentProduct}
-                /*     deleteProduct={handleDelete}
-                editProduct={handleEdit} */
-                productId={currentProduct.id}
-              />
-            </div>
-          );
-        })}
+      <ul className="products-grid">
+        {products &&
+          products.map((currentProduct) => {
+            return (
+              <div key={currentProduct.id}>
+                <Product
+                  product={currentProduct}
+                  /*     deleteProduct={handleDelete}
+                  editProduct={handleEdit} */
+                  productId={currentProduct.id}
+                />
+              </div>
+            );
+          })}
+      </ul>
     </div>
   );
 };

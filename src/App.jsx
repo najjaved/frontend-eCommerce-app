@@ -11,6 +11,9 @@ import NewProduct from "./components/NewProduct";
 //import { ShopContextProvider } from "./helpers/context/shop-context";
 //import EditProductPage from "./pages/EditProductPage";
 import Cart from "./pages/Cart";
+import EditProductPage from './pages/EditProductPage';
+import AboutPage from './pages/AboutPage';
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -40,11 +43,17 @@ function App() {
           />
           <Route path="/cart" element={<Cart />} />
           <Route path="/products/newProduct" element={<NewProduct />} />
+          <Route 
+            path="/products/edit/:productId" 
+            element={<EditProductPage productsList ={products} onUpdate={updateProductsData}/>}
+          /> 
           {/* <Route path="/userLogin" element={<UserLoginPage />} /> */}
           <Route path="/contact" element={<ContactPage />} />
+          <Route path='/about' element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} /> {/* fallback page */}
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }

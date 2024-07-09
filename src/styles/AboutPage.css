@@ -1,0 +1,92 @@
+/* about-page-styles.css */
+
+.about-page {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-page h3 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-page p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-page h5 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .about-page img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .about-page img:hover {
+    transform: scale(1.1);
+  }
+  
+  .about-page .x {
+    background-color: #0076A8;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .about-page .x p {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .about-page .x p strong {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .about-page .x a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .about-page .x a:hover {
+    color: #ffd166;
+  }
+  
+  .about-page button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #118ab2;
+    color: #fff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .about-page button:hover {
+    background-color: #06d6a0;
+  }
+  
