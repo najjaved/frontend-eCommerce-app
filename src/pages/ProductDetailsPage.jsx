@@ -5,7 +5,7 @@ import placeholderimg from "../assets/images/placeholderList.jpeg";
 import { ShopContext } from "../helpers/context/shop-context"; // import context file
 
 const ProductDetailsPage = () => {
-  const { products, addToCart } = useContext(ShopContext); //import all things context we need
+  const { products, addToCart, cartItems } = useContext(ShopContext); //import all things context we need
   console.log("Products from the context: ", products);
 
   const { productId } = useParams();
@@ -25,6 +25,7 @@ const ProductDetailsPage = () => {
     return <div>Loading...</div>;
   }
 
+  const cartItemAmount = cartItems[productDetails.id];
   return (
     <Card
       className="product-info"
@@ -82,7 +83,7 @@ const ProductDetailsPage = () => {
           size="lg"
           radius="md"
         >
-          Add To Cart
+          Add To Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}
         </Button>
       </Card.Section>
     </Card>
