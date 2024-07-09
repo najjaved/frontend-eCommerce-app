@@ -54,9 +54,20 @@ export const ShopContextProvider = ({ children }) => {
     }));
   };
 
+  const updateCartItemCount = (newAmount, itemId) => {
+    setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
+  };
+
   return (
     <ShopContext.Provider
-      value={{ products, cartItems, addToCart, removeFromCart, getAllProducts }}
+      value={{
+        products,
+        cartItems,
+        addToCart,
+        removeFromCart,
+        getAllProducts,
+        updateCartItemCount,
+      }}
     >
       {children}
     </ShopContext.Provider>
