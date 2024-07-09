@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, SwitchGroup } from "@mantine/core";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 
@@ -9,13 +9,16 @@ import { BrowserRouter } from "react-router-dom";
 import "@mantine/core/styles.css";
 import "./styles/global.css";
 import theme from "./styles/theme.js";
+import { ShopContextProvider } from "./helpers/context/shop-context.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <MantineProvider theme={theme}>
-        <App />
-      </MantineProvider>
-    </React.StrictMode>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <ShopContextProvider>
+        <MantineProvider theme={theme}>
+          <App />
+        </MantineProvider>
+      </ShopContextProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );

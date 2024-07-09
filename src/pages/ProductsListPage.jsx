@@ -2,19 +2,23 @@ import { Link, useNavigate } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 
 import Product from "../components/Product";
+import { useContext } from "react";
+import { ShopContext } from "../helpers/context/shop-context";
 
-const ProductsListPage = ({ productsList, setProductsList }) => {
+const ProductsListPage = ({ setProductsList }) => {
+  const { products, getAllProducts } = useContext(ShopContext);
+
   const navigate = useNavigate();
 
   //deletProduct(product.id) called from Product.jsx
   const handleDelete = (id) => {
     setProductsList(
-      productsList.filter((currentProduct) => currentProduct.id !== id)
+      products.filter((currentProduct) => currentProduct.id !== id)
     );
   };
 
   const handleEdit = (id) => {
-    navigate(`/products/edit/${id}`); // Navigate to edit page 
+    navigate(`/products/edit/${id}`); // Navigate to edit page
   };
 
   return (
@@ -23,8 +27,8 @@ const ProductsListPage = ({ productsList, setProductsList }) => {
       <Link to="/products/newProduct">
         <h2>Add Product</h2>
       </Link>
-      {productsList &&
-        productsList.map((currentProduct) => {
+      {products &&
+        products.map((currentProduct) => {
           return (
             <div className="products-grid" key={currentProduct.id}>
               <Link to={`/products/${currentProduct.id}`}>
@@ -32,7 +36,7 @@ const ProductsListPage = ({ productsList, setProductsList }) => {
                   product={currentProduct}
                   deleteProduct={handleDelete}
                   editProduct={handleEdit}
-                /> 
+                />
               </Link>
             </div>
           );
