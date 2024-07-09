@@ -23,20 +23,20 @@ const ProductsListPage = ({ productsList, setProductsList }) => {
       <Link to="/products/newProduct">
         <h2>Add Product</h2>
       </Link>
-      {productsList &&
-        productsList.map((currentProduct) => {
-          return (
-            <div className="products-grid" key={currentProduct.id}>
-              <Link to={`/products/${currentProduct.id}`}>
-                <Product
-                  product={currentProduct}
-                  deleteProduct={handleDelete}
-                  editProduct={handleEdit}
-                /> 
-              </Link>
-            </div>
-          );
-        })}
+      <ul className="products-grid">
+        {productsList &&
+          productsList.map((currentProduct) => {
+            return (
+                <Link key={currentProduct.id} to={`/products/${currentProduct.id}`}>
+                  <Product
+                    product={currentProduct}
+                    deleteProduct={handleDelete}
+                    editProduct={handleEdit}
+                  /> 
+                </Link>
+            );
+          })}
+      </ul>
     </div>
   );
 };
