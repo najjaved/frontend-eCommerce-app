@@ -52,7 +52,7 @@ const EditProductPage = ({productsList, onUpdate }) => {
 
             <label>
               Title
-              <input name='title' value={updatedProduct.name} onChange={handleChange} />
+              <input name='name' value={updatedProduct.name} onChange={handleChange} />
             </label>
     
             <label>

@@ -6,7 +6,7 @@ import { API_URL } from '../helpers/constants';
 const resetInitialStates = () => {
   return {
     category: 'Misc',
-    title: '',
+    name: '',
     description: '',
     price: 0,
     discount: 0,
@@ -76,7 +76,7 @@ const NewProduct = () => {
               
               <label>
                 Title
-                <input name="title" value={newProduct.name} onChange={handleChange} />
+                <input name="name" value={newProduct.name} onChange={handleChange} />
               </label>
 
               <label>
