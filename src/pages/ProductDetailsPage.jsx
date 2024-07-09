@@ -71,7 +71,8 @@ const ProductDetailsPage = ({ handleAddToCart }) => {
           color="indigo"
           size="lg"
           radius="md"
-          to="/products"
+          component="a"
+          href="/products"
         >
           Back
         </Button>
