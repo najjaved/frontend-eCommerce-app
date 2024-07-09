@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 import placeholderimg from "../assets/images/placeholderList.jpeg";
-import { useContext } from "react";
-import { ShopContext } from "../helpers/context/shop-context";
+import { useContext } from "react"; //import context hook
+import { ShopContext } from "../helpers/context/shop-context"; // import context file
 
-const ProductDetailsPage = ({ handleAddToCart }) => {
-  const { products } = useContext(ShopContext);
+const ProductDetailsPage = () => {
+  const { products, addToCart, removeFromCart } = useContext(ShopContext); //import all things context we need
 
   const { productId } = useParams();
 
@@ -78,7 +78,7 @@ const ProductDetailsPage = ({ handleAddToCart }) => {
         </Button>
 
         <Button
-          onClick={() => handleAddToCart(product)} // Pass product instead of productDetails
+          onClick={() => addToCart(product.id)}
           variant="filled"
           color="lime"
           size="lg"

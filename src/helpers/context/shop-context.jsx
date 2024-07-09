@@ -7,13 +7,6 @@ export const ShopContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
 
-  const addToCart = (itemId) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: prev[itemId] + 1,
-    }));
-  };
-
   const getDefaultCart = () => {
     let cart = {};
     for (let i = 1; i < products.length; i++) {
@@ -42,6 +35,13 @@ export const ShopContextProvider = ({ children }) => {
     setCartItems(getDefaultCart());
   }, [products]);
 
+  const addToCart = (itemId) => {
+    setCartItems((prev) => ({
+      ...prev,
+      [itemId]: prev[itemId] + 1,
+    }));
+  };
+
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({
       ...prev,
@@ -49,9 +49,10 @@ export const ShopContextProvider = ({ children }) => {
     }));
   };
 
+  console.log(cartItems);
   return (
     <ShopContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, getAllProducts, products }}
+      value={{ products, cartItems, addToCart, removeFromCart, getAllProducts }}
     >
       {children}
     </ShopContext.Provider>

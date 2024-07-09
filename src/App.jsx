@@ -7,11 +7,9 @@ import ProductsListPage from "./pages/ProductsListPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ContactPage from "./pages/ContactPage";
-import UserLoginPage from "./pages/UserLoginPage";
+//import UserLoginPage from "./pages/UserLoginPage";
 import { API_URL } from "./helpers/constants";
 import NewProduct from "./components/NewProduct";
-import useCart from "./components/useCart";
-import CartPage from "./pages/CartPage";
 import { ShopContextProvider } from "./helpers/context/shop-context";
 import EditProductPage from "./pages/EditProductPage";
 
