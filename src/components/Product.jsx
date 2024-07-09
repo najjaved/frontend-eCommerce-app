@@ -14,29 +14,25 @@ const Product = ({ product, deleteProduct, editProduct }) => {
   return (
     <div className="product-div">
       <div className="images-div">
-        <img src={placeholderimg} alt="image to be added" /> {/* product.images[0] */}
+        <img src={placeholderimg} alt="image to be added" />
+        {/* product.images[0] */}
       </div>
       <div className="details-div">
         <p>
-          {" "}
-          <b>Product Category:</b> {product.category}{" "}
+          <b>Product Category:</b> {product.category}
         </p>
         <p>
-          {" "}
-          <b>Title:</b> {product.product_name}{" "}
+          <b>Title:</b> {product.name}
         </p>
         <p>
-          {" "}
-          <b>Price:</b> {product.price}{" "}
+          <b>Price:</b> {product.price}€
         </p>
         <p>
-          {" "}
-          <b>Discount:</b> {product.discount}
+          <b>Discount:</b> {product.discount * 100}%
         </p>
         {product.price < 30 && (
           <span style={{ color: "#3B82F6", fontWeight: "bold" }}>
-            {" "}
-            Great Deal{" "}
+            Great Deal
           </span>
         )}
         <div className="buttons-div">

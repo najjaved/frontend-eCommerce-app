@@ -63,7 +63,7 @@ const ProductDetailsPage = ({ handleAddToCart }) => {
       </Text>
       <Text size="sm" c="dimmed">
         <b>Discount: </b>
-        {product.discount * 10}
+        {product.discount * 100}%
       </Text>
       <Card.Section className="ButtonContainer">
         <Button
