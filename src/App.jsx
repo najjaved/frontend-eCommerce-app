@@ -11,6 +11,8 @@ import UserLoginPage from "./pages/UserLoginPage";
 import { API_URL } from "./helpers/constants";
 import NewProduct from "./components/NewProduct";
 import EditProductPage from './pages/EditProductPage';
+import AboutPage from './pages/AboutPage';
+import Footer from "./components/Footer";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -73,9 +75,11 @@ function App() {
 
           <Route path="/userLogin" element={<UserLoginPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path='/about' element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} /> {/* fallback page */}
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }
