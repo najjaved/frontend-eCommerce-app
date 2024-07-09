@@ -54,7 +54,7 @@
 
 /* Navbar styles */
 .navbar {
-  background-color: rgb(26, 101, 67);
+  background-color:#458065;
   position: fixed;
   top: 0;
   left: 0;
@@ -72,10 +72,11 @@
   justify-content: space-between;
   width: 100%;
   margin-left: 0;
+  margin-right: 20px;
   padding-left: 0;
   color: whitesmoke;
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-family: "Cursive", "Lucida Console", "Courier New", monospace;
 }
 
 .logo {
@@ -109,6 +110,7 @@
 .ProductListPage,
 .product-info {
   margin: 4.5em;
+  text-align: center;
 }
 
 .products-grid {
@@ -138,7 +140,6 @@ a {
  
 
 .product-div:hover {
-  transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -285,4 +286,27 @@ a {
 
 .form button:hover {
   background-color: #06d6a0;
+}
+
+.footer {
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  left:0;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+  background-color: #458065;;
+  color: whitesmoke;
+  padding: 3em 0;
+  font-size: 1.8em; 
+}
+
+.footer a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }

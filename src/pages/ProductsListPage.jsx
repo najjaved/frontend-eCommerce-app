@@ -23,10 +23,9 @@ const ProductsListPage = () => {
  */
   return (
     <div className="ProductListPage">
-      <h1>Listpage to be styled</h1>
-      <Link to="/products/newProduct">
-        <h2>Add Product</h2>
-      </Link>
+      <Button color="grey" radius="md" size="lg" component={Link} to = "/products/newProduct">
+       Add New Product
+      </Button>
       <ul className="products-grid">
         {products &&
           products.map((currentProduct) => {
