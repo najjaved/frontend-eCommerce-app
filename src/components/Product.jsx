@@ -1,4 +1,5 @@
 import placeholderimg from "../assets/images/placeholderList.jpeg";
+import nature from "../assets/images/nature.jpg";
 import { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
 import { Button } from "@mantine/core";
@@ -20,8 +21,7 @@ const Product = ({ product, deleteProduct, editProduct, productId }) => {
   return (
     <div className="product-div">
       <div className="images-div">
-        <img src={placeholderimg} alt="image to be added" />
-        {/* product.images[0] */}
+        <img src={nature} alt="Placeholder" /> {/* product.images[0] */}
       </div>
       <div className="details-div">
         <p>

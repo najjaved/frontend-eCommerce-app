@@ -1,6 +1,5 @@
 //import './App.css';
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ProductsListPage from "./pages/ProductsListPage";
@@ -8,10 +7,10 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ContactPage from "./pages/ContactPage";
 //import UserLoginPage from "./pages/UserLoginPage";
-import { API_URL } from "./helpers/constants";
 import NewProduct from "./components/NewProduct";
-import { ShopContextProvider } from "./helpers/context/shop-context";
-import EditProductPage from "./pages/EditProductPage";
+//import { ShopContextProvider } from "./helpers/context/shop-context";
+//import EditProductPage from "./pages/EditProductPage";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -39,6 +38,7 @@ function App() {
               />
             }
           />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/products/newProduct" element={<NewProduct />} />
           {/* <Route path="/userLogin" element={<UserLoginPage />} /> */}
           <Route path="/contact" element={<ContactPage />} />

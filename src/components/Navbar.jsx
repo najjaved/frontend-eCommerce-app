@@ -28,16 +28,15 @@ const Navbar = () => {
               style={{ height: "30px", width: "auto" }}
             />
           </Link>
-
+          {/* 
           <Link to="/userLogin">
-            {/* toDO: populate page & move styles to css file */}
             <img
               className="user"
               src={profileIcon || "swap-user-image"}
               alt="user profile"
               style={{ height: "30px", width: "auto" }}
             />
-          </Link>
+          </Link> */}
         </section>
       </div>
     </nav>
