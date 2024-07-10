@@ -80,6 +80,13 @@ export const ShopContextProvider = ({ children }) => {
     navigate(`/products/edit/${id}`); // Navigate to edit page
   };
 
+  const updateProductsData = (updatedProduct) => {
+    const updatedProducts = products.map((product) =>
+      product.id === updatedProduct.id ? updatedProduct : product
+    );
+    setProducts(updatedProducts);
+  };
+
   return (
     <ShopContext.Provider
       value={{
@@ -92,6 +99,7 @@ export const ShopContextProvider = ({ children }) => {
         getTotalCartAmount,
         handleEdit,
         handleDelete,
+        updateProductsData,
       }}
     >
       {children}

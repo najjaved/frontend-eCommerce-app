@@ -2,10 +2,10 @@ import React, { useState, useContext } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { ShopContext } from "../helpers/context/shop-context";
 
-const EditProductPage = ({ onUpdate }) => {
+const EditProductPage = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
-  const { products } = useContext(ShopContext);
+  const { products, updateProductsData } = useContext(ShopContext);
   const product = products.find(
     (currentProduct) => currentProduct.id.toString() === productId
   );
@@ -20,7 +20,7 @@ const EditProductPage = ({ onUpdate }) => {
   const handleUpdateSubmit = (event) => {
     event.preventDefault();
     // update products with updated project entries
-    onUpdate(updatedProduct);
+    updateProductsData(updatedProduct);
     navigate("/products");
   };
 
