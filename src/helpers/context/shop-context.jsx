@@ -69,6 +69,15 @@ export const ShopContextProvider = ({ children }) => {
     return totalAmount;
   };
 
+  //deletProduct(product.id) called from Product.jsx
+  const handleDelete = (id) => {
+    setProducts(products.filter((currentProduct) => currentProduct.id !== id));
+  };
+
+  const handleEdit = (id) => {
+    navigate(`/products/edit/${id}`); // Navigate to edit page
+  };
+
   return (
     <ShopContext.Provider
       value={{
@@ -79,6 +88,8 @@ export const ShopContextProvider = ({ children }) => {
         getAllProducts,
         updateCartItemCount,
         getTotalCartAmount,
+        handleEdit,
+        handleDelete,
       }}
     >
       {children}

@@ -19,7 +19,7 @@ const resetInitialStates = () => {
 };
 
 const NewProduct = () => {
-  const { products, getAllProducts } = useContext(ShopContext);
+  const { getAllProducts } = useContext(ShopContext);
   const navigate = useNavigate();
   const [newProduct, setNewProduct] = useState(resetInitialStates());
 
