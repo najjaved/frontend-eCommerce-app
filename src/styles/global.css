@@ -94,7 +94,8 @@ body,
   font-family: "Cursive", monospace;
   text-align: center;
   width: 100%;
-  position: relative; /* Removed fixed positioning */
+  position: fixed;
+  bottom: 0;
 }
 
 .footer a {
