@@ -1,7 +1,6 @@
 import { Fragment, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import genericImg from "../assets/images/genericIimage.jpg";
-import { API_URL } from "../helpers/constants";
 import { ShopContext } from "../helpers/context/shop-context";
 
 const resetInitialStates = () => {
@@ -29,7 +28,7 @@ const NewProduct = () => {
     console.log("Data sent to backsent", payload);
 
     try {
-      const response = await fetch(`${API_URL}/products`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/products`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

@@ -74,7 +74,7 @@ export const ShopContextProvider = ({ children }) => {
   //deletProduct(product.id) called from Product.jsx
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`${API_URL}/products/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/products/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) {

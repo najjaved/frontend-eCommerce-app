@@ -1,16 +1,12 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
+import { Link } from "react-router-dom";
+import { Button } from "@mantine/core";
 
 import Product from "../components/Product";
 import { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
 
 const ProductsListPage = () => {
-  const { products, getAllProducts, handleDelete, handleEdit } =
-    useContext(ShopContext);
-  console.log("reverse array of products:", products.reverse());
-
-  const navigate = useNavigate();
+  const { products, getAllProducts, handleDelete, handleEdit } = useContext(ShopContext);
 
   return (
     <div className="ProductListPage">
@@ -25,7 +21,7 @@ const ProductsListPage = () => {
       </Button>
       <ul className="products-grid">
         {products &&
-          products.reverse().map((currentProduct) => {
+          products.toReversed().map((currentProduct) => {
             return (
               <div key={currentProduct.id}>
                 <Product
