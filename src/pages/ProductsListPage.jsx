@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
 
 const ProductsListPage = () => {
-  const { products, getAllProducts } = useContext(ShopContext);
+  const { products, getAllProducts, handleDelete, handleEdit } =
+    useContext(ShopContext);
   console.log("reverse array of products:", products.reverse());
 
   const navigate = useNavigate();
