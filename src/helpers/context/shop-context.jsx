@@ -112,6 +112,10 @@ export const ShopContextProvider = ({ children }) => {
     }
   };
 
+  const fakePayReset = () => {
+    const resetCart = getDefaultCart(); // Get a new empty cart object
+    setCartItems(resetCart); // Set the cartItems state to the new empty cart
+  };
   return (
     <ShopContext.Provider
       value={{
@@ -125,6 +129,7 @@ export const ShopContextProvider = ({ children }) => {
         handleEdit,
         handleDelete,
         updateProductsData,
+        fakePayReset,
       }}
     >
       {children}

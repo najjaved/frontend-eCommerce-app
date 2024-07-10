@@ -4,7 +4,8 @@ import CartItem from "../components/CartItem"; // Adjust the path as necessary
 import { Button } from "@mantine/core";
 
 const Cart = () => {
-  const { getTotalCartAmount, products, cartItems } = useContext(ShopContext);
+  const { getTotalCartAmount, products, cartItems, fakePayReset } =
+    useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
   return (
     <div className="cart">
@@ -35,7 +36,13 @@ const Cart = () => {
         >
           Continue Shopping
         </Button>{" "}
-        <Button variant="filled" color="indigo" size="lg" radius="md">
+        <Button
+          variant="filled"
+          color="indigo"
+          size="lg"
+          radius="md"
+          onClick={fakePayReset}
+        >
           Fake Pay & Reset
         </Button>
       </div>
