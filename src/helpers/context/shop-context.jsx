@@ -91,12 +91,25 @@ export const ShopContextProvider = ({ children }) => {
   const handleEdit = (id) => {
     navigate(`/products/edit/${id}`); // Navigate to edit page
   };
-
-  const updateProductsData = (updatedProduct) => {
-    const updatedProducts = products.map((product) =>
-      product.id === updatedProduct.id ? updatedProduct : product
-    );
-    setProducts(updatedProducts);
+  const updateProductsData = async (updatedProduct) => {
+    try {
+      const response = await fetch(`${API_URL}/products/${updatedProduct.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedProduct),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      const updatedProducts = products.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product
+      );
+      setProducts(updatedProducts);
+    } catch (error) {
+      console.log("Update error: ", error);
+    }
   };
 
   return (
