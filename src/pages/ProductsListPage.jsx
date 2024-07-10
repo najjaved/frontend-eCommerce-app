@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
 
 const ProductsListPage = () => {
-  const { products, handleEdit, handleDelete } = useContext(ShopContext);
+  const { products, getAllProducts } = useContext(ShopContext);
+  console.log("reverse array of products:", products.reverse());
 
   const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ const ProductsListPage = () => {
       </Button>
       <ul className="products-grid">
         {products &&
-          products.map((currentProduct) => {
+          products.reverse().map((currentProduct) => {
             return (
               <div key={currentProduct.id}>
                 <Product
