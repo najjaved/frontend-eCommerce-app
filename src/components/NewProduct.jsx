@@ -1,7 +1,8 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useContext  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import genericImg from "../assets/images/genericIimage.jpg";
 import { API_URL } from '../helpers/constants';
+import { ShopContext } from "../helpers/context/shop-context";
 
 const resetInitialStates = () => {
   return {
@@ -16,6 +17,7 @@ const resetInitialStates = () => {
 };
 
 const NewProduct = () => {
+  const { getAllProducts } = useContext(ShopContext);
   const navigate = useNavigate();
   const [newProduct, setNewProduct] = useState(resetInitialStates());
 
@@ -35,6 +37,7 @@ const NewProduct = () => {
             const newProductData = await response.json();
             console.log('parsed new product data: ', newProductData);
             setNewProduct(resetInitialStates()); // reinitialize entries after submitting form & navigate back to the ProductsListPage
+            getAllProducts();
             navigate('/products'); 
         }    
     }
