@@ -72,8 +72,20 @@ export const ShopContextProvider = ({ children }) => {
   };
 
   //deletProduct(product.id) called from Product.jsx
-  const handleDelete = (id) => {
-    setProducts(products.filter((currentProduct) => currentProduct.id !== id));
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`${API_URL}/products/${id}`, {
+        method: "DELETE",
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      setProducts(
+        products.filter((currentProduct) => currentProduct.id !== id)
+      );
+    } catch (error) {
+      console.log("Delete error: ", error);
+    }
   };
 
   const handleEdit = (id) => {
