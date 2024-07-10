@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-import { API_URL } from "../constants";
 import { useNavigate } from "react-router-dom";
 
 export const ShopContext = createContext(null);
@@ -19,7 +18,7 @@ export const ShopContextProvider = ({ children }) => {
 
   const getAllProducts = async () => {
     try {
-      const response = await fetch(`${API_URL}/products`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/products`);
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
       }
