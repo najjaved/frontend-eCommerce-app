@@ -1,11 +1,13 @@
 import { createContext, useState, useEffect } from "react";
 import { API_URL } from "../constants";
+import { useNavigate } from "react-router-dom";
 
 export const ShopContext = createContext(null);
 
 export const ShopContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
+  const navigate = useNavigate();
 
   const getDefaultCart = () => {
     let cart = {};
