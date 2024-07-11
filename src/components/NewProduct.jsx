@@ -10,7 +10,7 @@ const resetInitialStates = () => {
     price: 0,
     discount: 0,
     stock: 0,
-    images: [] // Test for new product: https://lh3.googleusercontent.com/pw/AP1GczMXDRBaA9OxtyAQzf_ZDH7bOt6SUxOAbzuJ2roiVxutahsJeODemVgyYuZgnTLMXB0f7H-VIkIXJ_uDVhyCTvtDVOsB_JzSJPLNnY9h3VPxDW6CS4M3DTpvonNIBL51OVOhYgoYBMjaF74l21LZDKCiCA=w586-h879-s-no-gm?authuser=0
+    images: [], // Test for new product: https://lh3.googleusercontent.com/pw/AP1GczMXDRBaA9OxtyAQzf_ZDH7bOt6SUxOAbzuJ2roiVxutahsJeODemVgyYuZgnTLMXB0f7H-VIkIXJ_uDVhyCTvtDVOsB_JzSJPLNnY9h3VPxDW6CS4M3DTpvonNIBL51OVOhYgoYBMjaF74l21LZDKCiCA=w586-h879-s-no-gm?authuser=0
   };
 };
 
@@ -46,8 +46,8 @@ const NewProduct = () => {
   const handleChange = (event) => {
     const currentName = event.target.name; // or extract directly using destructuring: const { name, value } = event.target;
     const currentValue = event.target.value;
-    if (currentName === 'images') {
-      setNewProduct({ ...newProduct, images: [currentValue] });  // handle the image URL as an array
+    if (currentName === "images") {
+      setNewProduct({ ...newProduct, images: [currentValue] }); // handle the image URL as an array
     } else {
       setNewProduct({ ...newProduct, [currentName]: currentValue }); // updates the newProduct state object by setting the property with the key of currentName to the value of currentValue.
     }
@@ -118,6 +118,16 @@ const NewProduct = () => {
                   onChange={handleChange}
                 />
               </label>
+
+              {newProduct.images.length > 0 && newProduct.images[0] && (
+                <div className="image-preview">
+                  <img
+                    src={newProduct.images[0]}
+                    alt="Product preview"
+                    style={{ maxHeight: "200px", maxWidth: "100%" }}
+                  />
+                </div>
+              )}
 
               <label
                 style={{ display: "flex", justifyContent: "space-between" }}
