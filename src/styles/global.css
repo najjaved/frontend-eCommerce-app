@@ -93,6 +93,7 @@ body,
   height: 100vh;
   background-color: #85c7a9;
   margin-bottom: 10px;
+  gap: 20px;
 }
 
 .imagesection {
