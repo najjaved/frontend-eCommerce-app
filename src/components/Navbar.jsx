@@ -1,4 +1,4 @@
-import placeHolderLogo from "../assets/images/placeholder.logo.jpg";
+import Logo from "../assets/images/EO.png";
 import profileIcon from "../assets/images/profile-icon.png";
 import cartimage from "../assets/images/cartimage.png";
 import cartnew from "../assets/images/cartnew.png";
@@ -11,9 +11,9 @@ const Navbar = () => {
         <Link to="/">
           <img
             className="logo"
-            src={placeHolderLogo}
+            src={Logo}
             alt="home icon"
-            style={{ height: "30px", width: "auto" }}
+            style={{ height: "50px", width: "auto" }}
           />
         </Link>
 
