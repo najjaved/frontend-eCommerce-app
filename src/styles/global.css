@@ -299,11 +299,12 @@ a {
   width: auto; /* Maintain aspect ratio */
   height: 100%; /* Ensure the image fills its container */
   display: block;
-  max-height: 400px; /* Limit max height */
+  max-height: 300px; /* Limit max height of each image*/
   max-width: 100%; /* Prevent image overflow */
   border-radius: 5px; /* Optional: Rounded corners */
   object-fit: cover; /* Cover the area while maintaining aspect ratio */
-  border-radius: 5px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .product-div:hover {
