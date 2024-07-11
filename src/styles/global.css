@@ -15,16 +15,69 @@ body,
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #85c7a9;
 }
 
 .App {
   font-family: "Roboto", sans-serif;
-  background-color: #ffffff;
+  background-color: #85c7a9;
   margin-top: var(--navbar-height);
 }
 
+.herosection {
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly across the container */
+  align-items: center; /* Center items vertically */
+  height: 100vh; /* 50% of viewport height */
+  background-color: #85c7a9;
+  margin-bottom: 10px;
+}
+
+.imagesection {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  height: 100%;
+}
+
+.imagesection img {
+  max-height: 100%; /* Ensure image height fills the available space */
+  width: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure image fits within its container */
+}
+
+.textsection {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center text vertically */
+  padding: 20px; /* Add padding for spacing */
+}
+
+.title {
+  font-size: 2.5rem; /* Adjust font size as needed */
+  margin-bottom: 10px; /* Space between title and subtitle */
+  font-family: "Cursive", "Lucida Console", "Courier New", monospace;
+}
+
+.subtitle {
+  font-size: 1.5rem; /* Adjust font size as needed */
+  color: #666; /* Subtitle color */
+}
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.buttontext {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
 .navbar {
-  background-color: #458065;
+  background-color: white;
   position: fixed;
   top: 0;
   left: 0;
@@ -44,7 +97,7 @@ body,
   margin-left: 0;
   margin-right: 20px;
   padding-left: 0;
-  color: whitesmoke;
+  color: rgb(21, 75, 32);
   font-size: 1.5rem;
   font-family: "Cursive", "Lucida Console", "Courier New", monospace;
 }
@@ -85,10 +138,10 @@ body,
 }
 
 .footer {
-  background-color: #458065;
+  background-color: white;
   display: flex;
   justify-content: space-evenly;
-  color: whitesmoke;
+  color: rgb(21, 75, 32);
   padding: 1em 0;
   font-size: 1.8em;
   font-family: "Cursive", monospace;
@@ -99,7 +152,7 @@ body,
 }
 
 .footer a {
-  color: whitesmoke;
+  color: rgb(21, 75, 32);
   text-decoration: none;
 }
 

@@ -2,9 +2,33 @@ import { Link } from "react-router-dom";
 
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 import placeholder from "../assets/images/placeholderList.jpeg";
+import hero from "../assets/images/herosection.jpg";
 function HomePage() {
   return (
     <>
+      <div class="herosection">
+        <div class="imagesection">
+          <img src={hero} alt="forest picture" />
+        </div>
+        <div class="textsection">
+          <h1 class="title">Ethical Origins</h1>
+          <h2 class=" playfair-display">
+            Nature's Gifts for You - Pure and Natural Health Essentials
+          </h2>
+          <Button
+            component={Link}
+            to="/products"
+            color="black"
+            fullWidth
+            mt="md"
+            radius="md"
+            className="buttontext"
+          >
+            Take a look at all our products
+          </Button>
+        </div>
+      </div>
+      {/* 
       <Card shadow="sm" padding="lg" radius="md" withBorder className="card">
         <Card.Section>
           <Image src={placeholder} height={500} alt="Norway" />
@@ -21,18 +45,7 @@ function HomePage() {
           <br />
           <b>price:</b> priceless
         </Text>
-
-        <Button
-          component={Link}
-          to="/products"
-          color="blue"
-          fullWidth
-          mt="md"
-          radius="md"
-        >
-          Take a look at our products
-        </Button>
-      </Card>
+      </Card> */}
     </>
   );
 }
