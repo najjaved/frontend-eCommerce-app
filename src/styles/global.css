@@ -105,15 +105,18 @@ body,
   flex: 1;
   display: flex;
   height: 100%;
+  margin-left: 2px;
 }
 
 .imagesection img {
   max-height: 100%;
   width: auto;
   max-width: 100%;
+  border-radius: 10px;
 }
 
 .textsection {
+  margin:0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -133,7 +136,7 @@ body,
 }
 
 .playfair-display {
-  font-family: "Playfair Display", serif;
+  font-family: "Courier New", monospace;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -141,7 +144,8 @@ body,
 
 .buttontext {
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
+  font-size: 1rem;
   font-style: normal;
 }
 .navbar {
@@ -262,6 +266,7 @@ body,
 .product-info {
   margin: 4.5em;
 }
+
 
 .products-grid {
   padding: 0;
