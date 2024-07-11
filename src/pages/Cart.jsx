@@ -26,8 +26,8 @@ const Cart = () => {
         {totalAmount > 0 ? (
           <p className="subtotal">Subtotal: ${totalAmount.toFixed(2)}</p>
         ) : (
-          <div>
-            <h1>Your Shopping Cart is empty</h1>
+          <div className="emptycart">
+            <h1 className="carth1">Your Shopping Cart is empty</h1>
             <img className="emptyimage" src={image} alt="Placeholder" />
           </div>
         )}

@@ -26,8 +26,18 @@ body,
 
 .emptyimage {
   width: 100%;
+  border-radius: 10px;
 }
 
+.emptycart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.carth1 {
+  margin-bottom: 10px;
+}
 .cart {
   max-width: 800px;
   margin: 0 auto;
