@@ -285,8 +285,8 @@ a {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: white;
+  height: 400px; /*set height for products container */
 }
-
 .images-div {
   flex: 0 0 40%; /* Set fixed width for images-div */
   max-width: 40%; /* Ensure images-div doesn't exceed 40% of parent */
