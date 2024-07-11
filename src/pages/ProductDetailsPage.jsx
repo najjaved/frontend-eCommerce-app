@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
-import placeholderimg from "../assets/images/placeholderList.jpeg";
 import { ShopContext } from "../helpers/context/shop-context"; // import context file
 
 const ProductDetailsPage = () => {
@@ -37,9 +36,9 @@ const ProductDetailsPage = () => {
       <Card.Section>
         <Image
           className="product-image"
-          src={placeholderimg}
-          alt="Product Image"
-          height={300}
+          src={productDetails.images[0]}
+          alt={`${productDetails.name} Image`}
+          height={500}
         />
       </Card.Section>
 
