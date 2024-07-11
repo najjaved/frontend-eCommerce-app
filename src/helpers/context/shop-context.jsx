@@ -10,7 +10,7 @@ export const ShopContextProvider = ({ children }) => {
 
   const getDefaultCart = () => {
     let cart = {};
-    for (let i = 1; i < products.length; i++) {
+    for (let i = 1; i <= products.length; i++) {
       cart[i] = 0;
     }
     return cart;
@@ -73,9 +73,12 @@ export const ShopContextProvider = ({ children }) => {
   //deletProduct(product.id) called from Product.jsx
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/products/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/products/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
       }

@@ -6,13 +6,13 @@ import hero from "../assets/images/herosection.jpg";
 function HomePage() {
   return (
     <>
-      <div class="herosection">
-        <div class="imagesection">
+      <div className="herosection">
+        <div className="imagesection">
           <img src={hero} alt="forest picture" />
         </div>
-        <div class="textsection">
-          <h1 class="title">Ethical Origins</h1>
-          <h2 class=" playfair-display">
+        <div className="textsection">
+          <h1 className="title">Ethical Origins</h1>
+          <h2 className=" playfair-display">
             Nature's Gifts for You - Pure and Natural Health Essentials
           </h2>
           <Button
