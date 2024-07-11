@@ -276,10 +276,9 @@ a {
 
 .product-div {
   margin: 20px;
-  width: fit-content;
-  padding: 50px;
+  padding: 20px;
   display: flex;
-  justify-content: left;
+  align-items: flex-start; /* Align items at the top */
   border: 1px solid #ddd;
   border-radius: 5px;
   overflow: hidden;
@@ -287,14 +286,21 @@ a {
   background-color: white;
 }
 
-.product-div:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.images-div {
+  flex: 0 0 40%; /* Set fixed width for images-div */
+  max-width: 40%; /* Ensure images-div doesn't exceed 40% of parent */
+  padding-right: 20px; /* Add padding for spacing */
+}
+.images-div img {
+  width: 100%; /* Ensure the image fills its container */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  max-width: 100%; /* Prevent image overflow */
+  border-radius: 5px; /* Optional: Rounded corners */
 }
 
-.images-div img {
-  width: 100%;
-  height: 400px;
-  display: block;
+.product-div:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .product-div p {
@@ -306,6 +312,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex: 1; /* Take remaining space */
 }
 
 .details-div p {
@@ -330,6 +337,8 @@ a {
   margin-top: 20px;
   display: flex;
   gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .not-found {
