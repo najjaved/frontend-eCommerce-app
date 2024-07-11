@@ -1,41 +1,42 @@
+# Ethical Origins, an eCommerce Admin Dashboard
 
-# Project Name
+## [See the App!](https://ethicalorigins.netlify.app/)
 
-## [See the App!](www.your-deploy-url-here.com)
-
-![App Logo](your-image-logo-path-or-name)
+![App Logo]("/src/assets/images/ethicalorigins.png")
 
 ## Description
 
-**NOTE -** Describe your project in one/two lines.
- 
+**NOTE -** This application is designed to help administrators manage products and inventory in their online stores. The dashboard provides features for viewing, adding, editing, and deleting products, as well as managing the shopping cart.
+
 ## User Stories
 
-**NOTE -**  List here all the actions a user can do in the app. Example:
+**NOTE -** The User with some Admin powers can:
 
-- **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault 
-- **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
-- **homepage** - As a user I want to be able to access the homepage so that I see what the app is about and login and signup
-- **sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
-- **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
-- **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
-- **events list** - As a user I want to see all the events available so that I can choose which ones I want to attend
-- **events create** - As a user I want to create an event so that I can invite others to attend
+- **404** - As a user I can to see a 404 page when I go to a page that doesn’t exist so that I know it was my fault
+- **homepage** - As a user I'm able to access the homepage so that I see what the app is about and login and signup
+- **events list** - As a user I can see all the products available so that I can choose which ones I want to attend
+- **events create** - As a user I can create a product so that I can invite others to attend
+- **events edjt** - As a user I can edit a product so that I can update anything, image, title, descirption, price, discount, anything.
 
 ## Backlog Functionalities
 
-**NOTE -** List here all functionalities you wish to add to your proyect later.
+**NOTE -** User Authentication
+**NOTE -** different flow for just buyer
+**NOTE -** stripe integration
 
 ## Technologies used
 
-**NOTE -** List here all technologies used in the project like HTML, CSS, Javascript, Node, Express, Handlebars, Sessions & Cookies, etc.
+**NOTE -**
 
+JavaScript,
+React,
+mantine,
 
 ## (Optional) Routes
 
 **NOTE -** List here all the routes of your server. Example:
 
-- GET / 
+- GET /
   - renders the homepage
 - GET /auth/signup
   - redirects to / if user logged in
@@ -50,6 +51,7 @@
   - redirects to / if user logged in
   - renders the login form (with flash msg)
 - POST /auth/login
+
   - redirects to / if user logged in
   - body:
     - username
@@ -57,21 +59,20 @@
 
 - GET /events
   - renders the event list + the create form
-- POST /events/create 
+- POST /events/create
   - redirects to / if user is anonymous
-  - body: 
+  - body:
     - name
     - date
     - location
     - description
 
-
 ## Models
 
-**NOTE -** List here all the models & Schemas of your Database Structure. Example: 
+**NOTE -** List here all the models & Schemas of your Database Structure. Example:
 
 User model
- 
+
 ```
 username: String
 password: String
@@ -84,7 +85,7 @@ owner: ObjectId<User>
 name: String
 description: String
 date: Date
-``` 
+```
 
 ## Links
 
