@@ -24,6 +24,11 @@ body,
   margin-top: var(--navbar-height);
 }
 
+#wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .emptyimage {
   width: 100%;
   border-radius: 10px;

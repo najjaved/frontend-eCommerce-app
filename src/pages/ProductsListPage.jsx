@@ -6,19 +6,23 @@ import { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
 
 const ProductsListPage = () => {
-  const { products, getAllProducts, handleDelete, handleEdit } = useContext(ShopContext);
+  const { products, getAllProducts, handleDelete, handleEdit } =
+    useContext(ShopContext);
 
   return (
     <div className="ProductListPage">
-      <Button
-        color="grey"
-        radius="md"
-        size="lg"
-        component={Link}
-        to="/products/newProduct"
-      >
-        Add New Product
-      </Button>
+      <div id="wrapper">
+        <Button
+          className="addnewproductbutton"
+          color="grey"
+          radius="md"
+          size="lg"
+          component={Link}
+          to="/products/newProduct"
+        >
+          Add New Product
+        </Button>
+      </div>
       <ul className="products-grid">
         {products &&
           products.toReversed().map((currentProduct) => {
