@@ -45,16 +45,16 @@ const Cart = () => {
           <p className="subtotal">Subtotal: ${totalAmount.toFixed(2)}</p>
         ) : null}
 
-        <div className="cart-buttons">
-          {totalAmount <= 0 && showEmptyCartMessage && (
+        <div>
+          {showEmptyCartMessage && (
             <div className="emptycart">
               <h1 className="carth1">Your Shopping Cart is empty</h1>
               <img className="emptyimage" src={image} alt="Placeholder" />
             </div>
           )}
 
-          {totalAmount > 0 && (
-            <>
+          <>
+            <div className="cart-buttons">
               <Button
                 variant="filled"
                 color="indigo"
@@ -75,8 +75,8 @@ const Cart = () => {
               >
                 Fake Pay & Reset
               </Button>
-            </>
-          )}
+            </div>
+          </>
 
           <Modal
             opened={modalOpened}
