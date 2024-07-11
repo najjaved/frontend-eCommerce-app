@@ -48,19 +48,19 @@ const ProductDetailsPage = () => {
         <Badge color="pink">On Sale</Badge>
       </Group>
 
-      <Text size="sm" c="dimmed">
+      <Text className="left" size="sm" c="dimmed">
         {productDetails.description}
       </Text>
 
-      <Text size="sm" c="dimmed">
+      <Text className="left" size="sm" c="dimmed">
         <b>Price: </b>
         {productDetails.price}€
       </Text>
-      <Text size="sm" c="dimmed">
+      <Text className="left" size="sm" c="dimmed">
         <b>Stock: </b>
         {productDetails.stock}
       </Text>
-      <Text size="sm" c="dimmed">
+      <Text className="left" size="sm" c="dimmed">
         <b>Discount: </b>
         {productDetails.discount * 100}%
       </Text>
