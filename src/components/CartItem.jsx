@@ -1,5 +1,4 @@
 import React from "react";
-import natureimg from "../assets/images/nature.jpg";
 import { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
 
@@ -9,7 +8,7 @@ export const CartItem = ({ product }) => {
   return (
     <div className="product-div">
       <div className="images-div">
-        <img src={natureimg} alt="Placeholder" /> {/* product.images[0] */}
+        <img src={product.images[0]} alt= {`${product.name} image`}/> 
       </div>
       <div className="details-div">
         <p>

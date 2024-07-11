@@ -1,6 +1,5 @@
 import Logo from "../assets/images/EO.png";
-import profileIcon from "../assets/images/profile-icon.png";
-import cartimage from "../assets/images/cartimage.png";
+//import profileIcon from "../assets/images/profile-icon.png";
 import cartnew from "../assets/images/cartnew.png";
 import { Link } from "react-router-dom";
 
