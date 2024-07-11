@@ -1,18 +1,20 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
-import CartItem from "../components/CartItem"; // Adjust the path as necessary
+import CartItem from "../components/CartItem";
 import { Button } from "@mantine/core";
+import image from "../assets/images/placeholderList.jpeg";
 
 const Cart = () => {
   const { getTotalCartAmount, products, cartItems, fakePayReset } =
     useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
+
   return (
     <div className="cart">
-      <div>
+      <div className="cart-header">
         <h1>Your Cart Items:</h1>
       </div>
-      <div className="cartItems">
+      <div className="cart-items">
         {products.map((product) => {
           if (cartItems[product.id] && cartItems[product.id] !== 0) {
             return <CartItem key={product.id} product={product} />;
@@ -20,31 +22,36 @@ const Cart = () => {
           return null;
         })}
       </div>
-      <div className="checkout">
+      <div className="cart-checkout">
         {totalAmount > 0 ? (
-          <p>Subtotal: {totalAmount}</p>
+          <p className="subtotal">Subtotal: ${totalAmount.toFixed(2)}</p>
         ) : (
-          <h1>Your Shopping Cart is empty</h1>
+          <div>
+            <h1>Your Shopping Cart is empty</h1>
+            <img className="emptyimage" src={image} alt="Placeholder" />
+          </div>
         )}
-        <Button
-          variant="filled"
-          color="indigo"
-          size="lg"
-          radius="md"
-          component="a"
-          href="/products"
-        >
-          Continue Shopping
-        </Button>{" "}
-        <Button
-          variant="filled"
-          color="indigo"
-          size="lg"
-          radius="md"
-          onClick={fakePayReset}
-        >
-          Fake Pay & Reset
-        </Button>
+        <div className="cart-buttons">
+          <Button
+            variant="filled"
+            color="indigo"
+            size="lg"
+            radius="md"
+            component="a"
+            href="/products"
+          >
+            Continue Shopping
+          </Button>
+          <Button
+            variant="filled"
+            color="indigo"
+            size="lg"
+            radius="md"
+            onClick={fakePayReset}
+          >
+            Fake Pay & Reset
+          </Button>
+        </div>
       </div>
     </div>
   );

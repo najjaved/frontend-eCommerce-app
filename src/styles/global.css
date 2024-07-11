@@ -1,5 +1,5 @@
 :root {
-  --navbar-height: 70px; /* Adjust this value according to the actual height of your navbar */
+  --navbar-height: 100px; /* Adjust this value according to the actual height of your navbar */
   --footer-height: 100px; /* Adjust this value according to the actual height of your footer */
 }
 
@@ -22,6 +22,58 @@ body,
   font-family: "Roboto", sans-serif;
   background-color: #85c7a9;
   margin-top: var(--navbar-height);
+}
+
+.emptyimage {
+  width: 100%;
+}
+
+.cart {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #879f94;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cart-items {
+  margin-bottom: 20px;
+}
+
+.cart-checkout {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtotal {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .cart {
+    padding: 10px;
+  }
+
+  .cart-checkout {
+    padding: 10px;
+  }
 }
 
 .herosection {
