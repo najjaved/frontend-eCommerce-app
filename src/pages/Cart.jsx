@@ -54,6 +54,8 @@ const Cart = () => {
           )}
 
           <>
+            <h1 className="carth1">Your Shopping Cart is empty</h1>
+
             <div className="cart-buttons">
               <Button
                 variant="filled"
