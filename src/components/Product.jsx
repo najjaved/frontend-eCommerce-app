@@ -21,7 +21,7 @@ const Product = ({ product, deleteProduct, editProduct, productId }) => {
   return (
     <div className="product-div">
       <div className="images-div">
-        <img src={nature} alt="Placeholder" /> {/* product.images[0] */}
+        <img src={product.images[0]} alt="Placeholder" /> {/* product.images[0] */}
       </div>
       <div className="details-div">
         <p>

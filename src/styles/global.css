@@ -290,14 +290,20 @@ a {
 .images-div {
   flex: 0 0 40%; /* Set fixed width for images-div */
   max-width: 40%; /* Ensure images-div doesn't exceed 40% of parent */
+  max-height: 400px; /* Limit height to 400px */
   padding-right: 20px; /* Add padding for spacing */
+  overflow: hidden; /* Hide overflow to maintain aspect ratio */
+  border-radius: 5px; /* Rounded corners */
 }
 .images-div img {
-  width: 100%; /* Ensure the image fills its container */
-  height: auto; /* Maintain aspect ratio */
+  width: auto; /* Maintain aspect ratio */
+  height: 100%; /* Ensure the image fills its container */
   display: block;
+  max-height: 400px; /* Limit max height */
   max-width: 100%; /* Prevent image overflow */
   border-radius: 5px; /* Optional: Rounded corners */
+  object-fit: cover; /* Cover the area while maintaining aspect ratio */
+  border-radius: 5px;
 }
 
 .product-div:hover {
