@@ -35,8 +35,7 @@ function HomePage() {
                 <div
                   className="category-image"
                   style={{
-                    backgroundImage:
-                      "url('https://lh3.googleusercontent.com/pw/AP1GczOL3WpFrHX7fKqw18wJ2i8g9LdLA4a6JUvzvz9_2-DD-e2c8Jtd6NhGcBFvv89THoNC3i6P2iAo6lVLZM3y5JH6jVFKIQh_vVZMl_6XIYeS4RRo2MiWsS0rKZ6aMTU-2MGtMwEqlZIETBnzKwCxpY7YlA=w600-h400-s-no-gm?authuser=0')",
+                    backgroundImage:"url('https://lh3.googleusercontent.com/pw/AP1GczOaRll89QJSaYq1sifMzvGoe49g4F0-C8brfziP59J-nAmdZqE1HsfE0946DVnWbKdD1Rq35br80SPfLtgQeNnSaLc-Yj_R-J7Ji10UaukQhBjljID52_MqBuR6CYJMfGnXPmdtnS5oP6nK7L1ezILnLg=w500-h333-s-no-gm?authuser=0')",
                   }}
                 >
                   <span className="category-text">Herbal Teas</span>
@@ -65,8 +64,7 @@ function HomePage() {
                 <div
                   className="category-image"
                   style={{
-                    backgroundImage:
-                      "url('https://lh3.googleusercontent.com/pw/AP1GczOaRll89QJSaYq1sifMzvGoe49g4F0-C8brfziP59J-nAmdZqE1HsfE0946DVnWbKdD1Rq35br80SPfLtgQeNnSaLc-Yj_R-J7Ji10UaukQhBjljID52_MqBuR6CYJMfGnXPmdtnS5oP6nK7L1ezILnLg=w500-h333-s-no-gm?authuser=0')",
+                    backgroundImage: "url('https://lh3.googleusercontent.com/pw/AP1GczOL3WpFrHX7fKqw18wJ2i8g9LdLA4a6JUvzvz9_2-DD-e2c8Jtd6NhGcBFvv89THoNC3i6P2iAo6lVLZM3y5JH6jVFKIQh_vVZMl_6XIYeS4RRo2MiWsS0rKZ6aMTU-2MGtMwEqlZIETBnzKwCxpY7YlA=w600-h400-s-no-gm?authuser=0')",
                   }}
                 >
                   <span className="category-text">Herbal Supplements</span>
