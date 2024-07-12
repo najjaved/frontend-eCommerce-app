@@ -148,6 +148,40 @@ body,
   font-size: 1rem;
   font-style: normal;
 }
+.category-section {
+  margin: 20px 0;
+}
+
+.category-title {
+  font-family: "Lucida Console", monospace;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.category-links {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Space between buttons */
+}
+.category-button {
+  font-family: Arial, Helvetica, sans-serif; /* Ensure consistent font style within buttons */
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 20px; /* Adjust padding for better button appearance */
+  border: 2px solid #4caf50; /* Outline color */
+  border-radius: 20px;
+  background-color: white; /* Background color */
+  color: #4caf50; /* Text color */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s, color 0.3s; /* Add transition effects */
+}
+
+.category-button:hover {
+  background-color: #4caf50; /* Background color on hover */
+  color: white; /* Text color on hover */
+}
+
+
 .navbar {
   background-color: white;
   position: fixed;

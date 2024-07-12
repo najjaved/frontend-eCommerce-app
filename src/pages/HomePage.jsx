@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { Button } from "@mantine/core";
+import { Button, Space } from "@mantine/core";
 import hero from "../assets/images/herosection.jpg";
 function HomePage() {
   return (
@@ -14,19 +14,71 @@ function HomePage() {
           <h2 className=" playfair-display">
             Nature's Gifts for You - Pure and Natural Health Essentials
           </h2>
-          <Button
-            component={Link}
-            to="/products"
-            color="black"
-            fullWidth
-            mt="md"
-            radius="md"
-            className="buttontext"
-          >
-            Take a look at all our products
-          </Button>
+          <div class="buttons">
+            <Button
+              component={Link}
+              to="/products"
+              color="black"
+              fullWidth
+              mt="md"
+              radius="md"
+              className="buttontext"
+            >
+              Take a look at all our products
+            </Button>
+            <Space h="xl" />
+            {/* Category Links Section */}
+            <div className="category-section">
+              <h3 className="category-title">Shop by Category</h3>
+              <div className="category-links">
+                <Button
+                  component={Link}
+                  to="/products/category/Herbal%20Teas"
+                  variant="outline"
+                  color="black"
+                  radius="md"
+                  className="category-button"
+                >
+                  Herbal Teas
+                </Button>
+                <Button
+                  component={Link}
+                  to="/products/category/Homemade%20Cosmetics"
+                  variant="outline"
+                  color="black"
+                  radius="md"
+                  className="category-button"
+                >
+                  Homemade Cosmetics
+                </Button>
+                <Button
+                  component={Link}
+                  to="/products/category/Herbal%20Supplements"
+                  variant="outline"
+                  color="black"
+                  radius="md"
+                  className="category-button"
+                >
+                  Herbal Supplements
+                </Button>
+                <Button
+                  component={Link}
+                  to="/products/category/Mineral%20Products"
+                  variant="outline"
+                  color="black"
+                  radius="md"
+                  className="category-button"
+                >
+                  Mineral Products
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          
         </div>
       </div>
+      
       {/* 
       <Card shadow="sm" padding="lg" radius="md" withBorder className="card">
         <Card.Section>

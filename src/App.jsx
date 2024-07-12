@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import AboutPage from "./pages/AboutPage";
 import Footer from "./components/Footer";
 import ProductForm from "./components/ProductForm";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/products/category/:categoryName" element={<CategoryPage />} />
             <Route path="/products" element={<ProductsListPage />} />
             <Route
               path="/products/:productId"
