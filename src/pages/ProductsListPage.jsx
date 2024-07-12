@@ -27,7 +27,7 @@ const ProductsListPage = () => {
         {products &&
           products.toReversed().map((currentProduct) => {
             return (
-              <div key={currentProduct.id} classname = "product-wrapper">
+              <div key={currentProduct.id} className = "product-wrapper">
                 <Product
                   product={currentProduct}
                   deleteProduct={handleDelete}
