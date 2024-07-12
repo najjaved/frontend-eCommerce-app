@@ -18,6 +18,55 @@ body,
   background-color: #85c7a9;
 }
 
+.category-section {
+  margin-top: 20px;
+  padding-top: 20px;
+
+  text-align: center;
+}
+
+.category-links {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.category-link {
+  width: 250px;
+  height: 160px;
+  text-decoration: none;
+  color: white;
+  display: block;
+  border-radius: 20px;
+}
+
+.category-image {
+  width: 100%;
+  border-radius: 20px;
+
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+.category-text {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Optional: adds a semi-transparent background to the text */
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  border-bottom-left-radius: 20px; /* Adjust the radius value as needed */
+  border-bottom-right-radius: 20px;
+}
 .App {
   font-family: "Roboto", sans-serif;
   background-color: #85c7a9;
@@ -98,6 +147,7 @@ body,
   height: 100vh;
   background-color: #85c7a9;
   margin-bottom: 10px;
+  margin-top: 0px;
   gap: 20px;
 }
 
@@ -112,11 +162,11 @@ body,
   max-height: 100%;
   width: auto;
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .textsection {
-  margin:0;
+  margin: 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -180,7 +230,6 @@ body,
   background-color: #4caf50; /* Background color on hover */
   color: white; /* Text color on hover */
 }
-
 
 .navbar {
   background-color: white;
@@ -300,7 +349,6 @@ body,
 .product-info {
   margin: 4.5em;
 }
-
 
 .products-grid {
   padding: 0;
@@ -434,6 +482,9 @@ a {
   align-items: center;
 }
 
+.content-container {
+  margin: 0;
+}
 .form {
   display: flex;
   flex-direction: column;

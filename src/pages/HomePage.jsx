@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-
 import { Button, Space } from "@mantine/core";
 import hero from "../assets/images/herosection.jpg";
+
 function HomePage() {
   return (
     <>
@@ -11,10 +11,10 @@ function HomePage() {
         </div>
         <div className="textsection">
           <h1 className="title">Ethical Origins</h1>
-          <h2 className=" playfair-display">
+          <h2 className="playfair-display">
             Nature's Gifts for You - Pure and Natural Health Essentials
           </h2>
-          <div class="buttons">
+          <div className="buttons">
             <Button
               component={Link}
               to="/products"
@@ -27,76 +27,72 @@ function HomePage() {
               Take a look at all our products
             </Button>
             <Space h="xl" />
-            {/* Category Links Section */}
             <div className="category-section">
-              <h3 className="category-title">Shop by Category</h3>
               <div className="category-links">
-                <Button
-                  component={Link}
-                  to="/products/category/Herbal%20Teas"
-                  variant="outline"
-                  color="black"
-                  radius="md"
-                  className="category-button"
+                <a
+                  href="/products/category/Herbal%20Teas"
+                  className="category-link"
                 >
-                  Herbal Teas
-                </Button>
-                <Button
-                  component={Link}
-                  to="/products/category/Homemade%20Cosmetics"
-                  variant="outline"
-                  color="black"
-                  radius="md"
-                  className="category-button"
+                  <div
+                    className="category-image"
+                    style={{
+                      backgroundImage:
+                        "url('https://lh3.googleusercontent.com/pw/AP1GczOL3WpFrHX7fKqw18wJ2i8g9LdLA4a6JUvzvz9_2-DD-e2c8Jtd6NhGcBFvv89THoNC3i6P2iAo6lVLZM3y5JH6jVFKIQh_vVZMl_6XIYeS4RRo2MiWsS0rKZ6aMTU-2MGtMwEqlZIETBnzKwCxpY7YlA=w600-h400-s-no-gm?authuser=0')",
+                    }}
+                  >
+                    <span className="category-text">Herbal Teas</span>
+                  </div>
+                </a>
+
+                <a
+                  href="/products/category/Homemade%20Cosmetics"
+                  className="category-link"
                 >
-                  Homemade Cosmetics
-                </Button>
-                <Button
-                  component={Link}
-                  to="/products/category/Herbal%20Supplements"
-                  variant="outline"
-                  color="black"
-                  radius="md"
-                  className="category-button"
+                  <div
+                    className="category-image"
+                    style={{
+                      backgroundImage:
+                        "url('https://lh3.googleusercontent.com/pw/AP1GczPXAuS523eRHQh3Aeg2XfwFOguViIIiMY-IybbfuTnSAkcxrySlORoYzMX4SLREov1AQuYWRwkO5PY7KOmlJI72GCBdG17yEMhtAVZZPExMLWOaxPusLSyYreyYj_dYn83CRHk4WotqoQggOEJtyZPD-g=w500-h333-s-no-gm?authuser=0')",
+                    }}
+                  >
+                    <span className="category-text">Homemade Cosmetics</span>
+                  </div>
+                </a>
+
+                <a
+                  href="/products/category/Herbal%20Supplements"
+                  className="category-link"
                 >
-                  Herbal Supplements
-                </Button>
-                <Button
-                  component={Link}
-                  to="/products/category/Mineral%20Products"
-                  variant="outline"
-                  color="black"
-                  radius="md"
-                  className="category-button"
+                  <div
+                    className="category-image"
+                    style={{
+                      backgroundImage:
+                        "url('https://lh3.googleusercontent.com/pw/AP1GczOaRll89QJSaYq1sifMzvGoe49g4F0-C8brfziP59J-nAmdZqE1HsfE0946DVnWbKdD1Rq35br80SPfLtgQeNnSaLc-Yj_R-J7Ji10UaukQhBjljID52_MqBuR6CYJMfGnXPmdtnS5oP6nK7L1ezILnLg=w500-h333-s-no-gm?authuser=0')",
+                    }}
+                  >
+                    <span className="category-text">Herbal Supplements</span>
+                  </div>
+                </a>
+
+                <a
+                  href="/products/category/Mineral%20Products"
+                  className="category-link"
                 >
-                  Mineral Products
-                </Button>
+                  <div
+                    className="category-image"
+                    style={{
+                      backgroundImage:
+                        "url('https://lh3.googleusercontent.com/pw/AP1GczMMCqfv802kA-qtQUVRLYTlJrnxMnNuBfJ0blE7dJmICPjgV-BnKVo52rk0e-pqodxtZJUGs5IZmauMQcNWSaI4Yk_XPadVwdybVOXVzrlHER8pINuZ-a6h-R-RkQQqmBF9E7mYwPisEhCGwWxVeH6NAQ=w500-h333-s-no-gm?authuser=0')",
+                    }}
+                  >
+                    <span className="category-text">Mineral Products</span>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
-
-          
         </div>
       </div>
-      
-      {/* 
-      <Card shadow="sm" padding="lg" radius="md" withBorder className="card">
-        <Card.Section>
-          <Image src={placeholder} height={500} alt="Norway" />
-        </Card.Section>
-
-        <Group justify="space-between" mt="md" mb="xs">
-          <Text fw={500}>We have great products waiting for you!</Text>
-          <Badge color="pink">On Sale</Badge>
-        </Group>
-
-        <Text size="sm" c="dimmed">
-          Nature has everything it needs to heal you and prevent you from
-          deteriorating :D BLABLABLA
-          <br />
-          <b>price:</b> priceless
-        </Text>
-      </Card> */}
     </>
   );
 }
