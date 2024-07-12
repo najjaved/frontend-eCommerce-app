@@ -1,6 +1,18 @@
 import { Fragment, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../helpers/context/shop-context";
+import {
+  TextInput,
+  NumberInput,
+  Select,
+  Textarea,
+  Button,
+  Group,
+  Title,
+  Divider,
+  Grid,
+  Space
+} from "@mantine/core";
 
 const resetInitialStates = () => {
   return {
@@ -22,7 +34,7 @@ const NewProduct = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const payload = newProduct;
-    console.log("Data sent to backsent", payload);
+    console.log("Data sent successfully to backend", payload);
 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/products`, {
@@ -56,69 +68,68 @@ const NewProduct = () => {
   const handleCancelAdd = () => {
     navigate("/products");
   };
-
   return (
     <Fragment>
       <div className="form-page">
-        <h3>New Product</h3>
+        <Title order={3} align="center" mb="lg" style={{ color: '#154B20' }}>
+          New Product
+        </Title>
         <form className="form" onSubmit={handleSubmit}>
-          <div className="content-div">
-            <section className="main-info">
-              <label>
-                Product Category
-                <select
-                  name="category"
-                  value={newProduct.category}
-                  onChange={handleChange}
-                >
-                  <option value="">-- None --</option>
-                  <option value="Herbal Teas">Herbal Teas</option>
-                  <option value="Homemade Cosmetics">Homemade Cosmetics</option>
-                  <option value="Herbal Supplements">Herbal Supplements</option>
-                  <option value="Mineral Products">Mineral Products</option>
-                </select>
-              </label>
+          <Grid>
+            <Grid.Col span={6}>
+              <Select
+                label="Product Category"
+                name="category"
+                value={newProduct.category}
+                onChange={(value) => setNewProduct({ ...newProduct, category: value })}
+                data={[
+                  { value: "Herbal Teas", label: "Herbal Teas" },
+                  { value: "Homemade Cosmetics", label: "Homemade Cosmetics" },
+                  { value: "Herbal Supplements", label: "Herbal Supplements" },
+                  { value: "Mineral Products", label: "Mineral Products" },
+                ]}
+                placeholder="Select category"
+                style={{ width: "100%" }}
+              />
+              <Space h="md" />
+              <TextInput
+                label="Title"
+                name="name"
+                value={newProduct.name}
+                onChange={handleChange}
+                style={{ width: "100%" }}
+              />
+              <Space h="md" />
+              <NumberInput
+                label="Price"
+                name="price"
+                value={newProduct.price}
+                onChange={(value) => setNewProduct({ ...newProduct, price: value })}
+                style={{ width: "100%" }}
+                hideControls
+              />
+              <Space h="md" />
+              <NumberInput
+                label="Discount"
+                name="discount"
+                value={newProduct.discount}
+                onChange={(value) => setNewProduct({ ...newProduct, discount: value })}
+                min={0}
+                max={1}
+                step={0.01}
+                style={{ width: "100%" }}
+                hideControls
+              />
+            </Grid.Col>
 
-              <label>
-                Title
-                <input
-                  name="name"
-                  value={newProduct.name}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-                Price
-                <input
-                  name="price"
-                  type="number"
-                  value={newProduct.price}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-                Discount
-                <input
-                  name="discount"
-                  type="number"
-                  value={newProduct.discount}
-                  onChange={handleChange}
-                />
-              </label>
-            </section>
-
-            <section className="description-div">
-              <label>
-                Product Image
-                <input
-                  name="images"
-                  value={newProduct.images}
-                  onChange={handleChange}
-                />
-              </label>
-
+            <Grid.Col span={6}>
+              <TextInput
+                label="Product Image URL"
+                name="images"
+                value={newProduct.images[0]}
+                onChange={handleChange}
+                style={{ width: "100%" }}
+              />
               {newProduct.images.length > 0 && newProduct.images[0] && (
                 <div className="image-preview">
                   <img
@@ -129,42 +140,42 @@ const NewProduct = () => {
                 </div>
               )}
 
-              <label
-                style={{ display: "flex", justifyContent: "space-between" }}
-              >
-                Description
-                <textarea
-                  name="description"
-                  rows={5}
-                  cols={25}
-                  value={newProduct.description}
-                  onChange={handleChange}
-                />
-              </label>
 
-              <label>
-                Stock
-                <input
-                  name="stock"
-                  value={newProduct.stock}
-                  onChange={handleChange}
-                />
-              </label>
-            </section>
-          </div>
-          <hr />
-
-          <div className="buttons-div">
-            <button type="submit">Save Product</button>
-            <button type="button" onClick={handleCancelAdd}>
-              {" "}
-              Cancel{" "}
-            </button>
-          </div>
+              <Space h="md" />
+              <Textarea
+                label="Description"
+                name="description"
+                value={newProduct.description}
+                onChange={handleChange}
+                rows={5}
+                cols={25}
+                style={{ width: "100%" }}
+              />
+              <Space h="md" />
+              <NumberInput
+                label="Stock"
+                name="stock"
+                value={newProduct.stock}
+                onChange={(value) => setNewProduct({ ...newProduct, stock: value })}
+                style={{ width: "100%" }}
+                hideControls
+              />
+            </Grid.Col>
+          </Grid>
+          <Divider my="lg" />
+          <Group position="apart">
+            <Button type="submit" variant="filled" size="md" radius="md">
+              Save Product
+            </Button>
+            <Button type="button" variant="filled" size="md" radius="md" onClick={handleCancelAdd}>
+              Cancel
+            </Button>
+          </Group>
         </form>
       </div>
     </Fragment>
   );
+  
 };
 
 export default NewProduct;

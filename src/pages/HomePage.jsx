@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
-import placeholder from "../assets/images/placeholderList.jpeg";
+import { Button } from "@mantine/core";
 import hero from "../assets/images/herosection.jpg";
 function HomePage() {
   return (
