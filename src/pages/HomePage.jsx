@@ -14,7 +14,7 @@ function HomePage() {
           <h2 className=" playfair-display">
             Nature's Gifts for You - Pure and Natural Health Essentials
           </h2>
-          <div class="buttons">
+          <div className="buttons">
             <Button
               component={Link}
               to="/products"
