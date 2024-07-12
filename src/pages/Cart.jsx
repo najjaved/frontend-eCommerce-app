@@ -6,6 +6,7 @@ import image from "../assets/images/placeholderList.jpeg";
 import naturefrau from "../assets/images/naturfrau.jpg";
 
 import { useDisclosure } from "@mantine/hooks";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { getTotalCartAmount, products, cartItems, fakePayReset } =
@@ -60,8 +61,8 @@ const Cart = () => {
                 color="indigo"
                 size="lg"
                 radius="md"
-                component="a"
-                href="/products"
+                component={Link}
+                to="/products"
               >
                 Continue Shopping
               </Button>

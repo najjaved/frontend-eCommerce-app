@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { ShopContext } from "../helpers/context/shop-context";
 import { Button } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 const Product = ({ product, deleteProduct, editProduct, productId }) => {
-  const { addToCart, products, cartItems } = useContext(ShopContext); //import all things context we need
+  const { addToCart, cartItems } = useContext(ShopContext); //import all things context we need
 
   const handleDeleteClick = (event) => {
     event.preventDefault();
@@ -73,8 +74,8 @@ const Product = ({ product, deleteProduct, editProduct, productId }) => {
             color="indigo"
             size="lg"
             radius="md"
-            component="a"
-            href={`/products/${productId}`}
+            component={Link}
+            to={`/products/${productId}`}
           >
             Product Details
           </Button>

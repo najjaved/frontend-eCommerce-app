@@ -1,4 +1,3 @@
-import profileIcon from "../assets/images/profile-icon.png";
 import { Link } from "react-router-dom";
 import "../styles/AboutPage.css";
 
@@ -15,24 +14,24 @@ const AboutPage = () => {
       <div>
         <h5>The team</h5>
         <p>
-          <a
-            href="https://github.com/mariamagneu"
+          <Link
+            to="https://github.com/mariamagneu"
             target="_blank"
             rel="noopener noreferrer"
           >
             <strong>Maria Magdalena</strong>
-          </a>
+          </Link>
           : MA in Political Museums, took a turn into Web3 in 2021, junior
           webDev. Maria's strenghts lie in communication & problem solving
         </p>
         <p>
-          <a
-            href="https://github.com/najjaved"
+          <Link
+            to="https://github.com/najjaved"
             target="_blank"
             rel="noopener noreferrer"
           >
             <strong>Najma Javed</strong>
-          </a>
+          </Link>
           : Electrical Engineering, Masters, HiL Test Engineer, a travel
           enthusiast and a nature lover
         </p>
@@ -41,21 +40,21 @@ const AboutPage = () => {
       <div className="Lkdn-links">
         <p className="xx">
           <strong>LinkedIn:</strong>
-          <a
-            href="https://www.linkedin.com/in/maria-magdalena-neu-85845b141/"
+          <Link
+            to="https://www.linkedin.com/in/maria-magdalena-neu-85845b141/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Maria,{" "}
-          </a>
-          <a
-            href="https://de.linkedin.com/in/najaved"
+          </Link>
+          <Link
+            to="https://de.linkedin.com/in/najaved"
             target="_blank"
             rel="noopener noreferrer"
           >
             {" "}
             Najma,{" "}
-          </a>
+          </Link>
         </p>
       </div>
 
