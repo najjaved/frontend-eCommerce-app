@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 import { ShopContext } from "../helpers/context/shop-context"; // import context file
 
 const ProductDetailsPage = () => {
+
+  const navigate = useNavigate();
+
   const { products, addToCart, cartItems } = useContext(ShopContext); //import all things context we need
   console.log("Products from the context: ", products);
 
@@ -69,8 +72,7 @@ const ProductDetailsPage = () => {
           color="indigo"
           size="lg"
           radius="md"
-          component="a"
-          href="/products"
+          onClick={() => navigate(-1)} // Navigate back to previous page
         >
           Back
         </Button>
