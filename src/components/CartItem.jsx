@@ -8,7 +8,7 @@ export const CartItem = ({ product }) => {
   return (
     <div className="product-div">
       <div className="images-div">
-        <img src={product.images[0]} alt= {`${product.name} image`}/> 
+        <img src={product.images[0]} alt={`${product.name} image`} />
       </div>
       <div className="details-div">
         <p>
@@ -34,7 +34,9 @@ export const CartItem = ({ product }) => {
           <button onClick={() => addToCart(product.id)}> + </button>
         </div>
         {product.price < 30 && (
-          <span style={{ color: "#3B82F6", fontWeight: "bold" }}>
+          <span
+            style={{ color: "#3B82F6", fontWeight: "bold", marginTop: "10px" }}
+          >
             Great Deal
           </span>
         )}
