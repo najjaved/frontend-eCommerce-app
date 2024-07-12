@@ -2,109 +2,137 @@
 
 ## [See the App!](https://ethicalorigins.netlify.app/)
 
-![App Logo]("/src/assets/images/ethicalorigins.png")
+![App Logo](/src/assets/images/ethicalorigins.png)
 
 ## Description
 
-**NOTE -** This application is designed to help administrators manage products and inventory in their online stores. The dashboard provides features for viewing, adding, editing, and deleting products, as well as managing the shopping cart.
+This application is designed to help administrators manage products and inventory in their online stores. The dashboard provides features for viewing, adding, editing, and deleting products, as well as managing the shopping cart.
 
 ## User Stories
 
-**NOTE -** The User with some Admin powers can:
+We have one user that can behave like an admin or a regular buyer - which will be changed in the future (see Backlog):
 
-- **404** - As a user I can to see a 404 page when I go to a page that doesn’t exist so that I know it was my fault
-- **homepage** - As a user I'm able to access the homepage so that I see what the app is about and login and signup
-- **events list** - As a user I can see all the products available so that I can choose which ones I want to attend
-- **events create** - As a user I can create a product so that I can invite others to attend
-- **events edjt** - As a user I can edit a product so that I can update anything, image, title, descirption, price, discount, anything.
+- **Not Found** - As a user I can see a 404 page when I go to a page that doesn’t exist so that I know it was my fault
+- **Homepage** - As a user I'm able to access the homepage so that I see what the app is about
+- **Product List** - As a user I can see all the products available so that I can choose from buy, edit, or remove
+- **Create Product** - As a user I can create a product so that I can invite others to attend
+- **Edit Product** - As a user I can edit a product so that I can update image, title, descirption, price, discount, anything.
+- **Delete Product** - As a user I can delete a product.
+- **Add Product to Cart** - As a user I can add a product to my cart & go through a mock payment flow.
 
 ## Backlog Functionalities
 
-**NOTE -** User Authentication
-**NOTE -** different flow for just buyer
-**NOTE -** stripe integration
+User Authentication
+
+- Login or Sign Up
+- Admin Login
+- Different flows for buyers / admin
+
+On each category page there should be an add Product to this category option
 
 ## Technologies used
 
-**NOTE -**
-
 JavaScript,
 React,
-mantine,
+Mantine,
 
 ## (Optional) Routes
 
-**NOTE -** List here all the routes of your server. Example:
+List here all the routes of your server.
 
 - GET /
   - renders the homepage
-- GET /auth/signup
-  - redirects to / if user logged in
-  - renders the signup form (with flash msg)
-- POST /auth/signup
-  - redirects to / if user logged in
-  - body:
-    - username
-    - email
-    - password
-- GET /auth/login
-  - redirects to / if user logged in
-  - renders the login form (with flash msg)
-- POST /auth/login
+- GET /products
+  - renders the product list + the create form
+- POST /products/newProducts
 
-  - redirects to / if user logged in
-  - body:
-    - username
-    - password
-
-- GET /events
-  - renders the event list + the create form
-- POST /events/create
-  - redirects to / if user is anonymous
   - body:
     - name
-    - date
-    - location
     - description
+    - image
+    - price
+    - stock
+    - discount
+
+- PUT /products/edit/:productId
+
+  - body:
+    - name
+    - description
+    - image
+    - price
+    - stock
+    - discount
+
+- DELETE /products/:productId
+  - delete from database
 
 ## Models
 
-**NOTE -** List here all the models & Schemas of your Database Structure. Example:
+List here all the models & Schemas of your Database Structure. Example:
 
-User model
-
-```
-username: String
-password: String
-```
-
-Event model
+Products model
 
 ```
-owner: ObjectId<User>
-name: String
-description: String
-date: Date
+
+id : integer number
+catergory : string
+name: string
+description: string
+price: float number
+discount: float number
+stock: integer number
+images: array
+
+```
+
+Users model
+
+```
+id: integer number
+username: string
+password: string
+email: email
+address: string
+phone: number
+role: string
+
+```
+
+Orders model
+
+```
+id: number
+userId: number
+orderDate: date
+status: string
+totalAmount: float number
+
+
 ```
 
 ## Links
 
 ## Collaborators
 
-[Developer 1 name](www.github-url.com)
+[Najma](https://github.com/najjaved)
 
-[Developer 2 name](www.github-url.com)
+[Maria](https://github.com/mariamagneu)
 
 ### Project
 
-[Repository Link](www.your-github-url-here.com)
+[Repository Link](https://github.com/najjaved/frontend-eCommerce-app)
 
-[Deploy Link](www.your-deploy-url-here.com)
+[Deploy Link](https://ethicalorigins.netlify.app/)
 
 ### Trello
 
-[Link to your trello board](www.your-trello-url-here.com)
+[Our trello board](https://trello.com/b/fE2fOZPU/e-commerce-app-planning)
 
 ### Slides
 
-[Slides Link](www.your-slides-url-here.com)
+[Our Slides](https://www.canva.com/design/DAGKquR7kEw/F0x8rET9D9_RICg021vBww/edit?utm_content=DAGKquR7kEw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+```
+
+```
