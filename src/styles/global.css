@@ -145,9 +145,7 @@ body,
   justify-content: space-between;
   align-items: center;
   height: 100vh;
-  background-color: #85c7a9;
-  margin-bottom: 10px;
-  margin-top: 0px;
+  margin: 0;
   gap: 20px;
 }
 
@@ -206,7 +204,7 @@ body,
   font-family: "Lucida Console", monospace;
   font-size: 1.8rem;
   margin-bottom: 15px;
-  color: #154B20;
+  color: #154b20;
 }
 
 .category-links {
@@ -281,9 +279,9 @@ body,
 .content {
   flex: 1;
   overflow: auto;
-  padding-bottom: var(
+  /*padding-bottom: var(
     --footer-height
-  ); /* Ensure content is not hidden behind the footer */
+  ); */ /* Ensure content is not hidden behind the footer */
 }
 
 .footer {
