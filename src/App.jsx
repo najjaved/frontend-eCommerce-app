@@ -5,11 +5,10 @@ import ProductsListPage from "./pages/ProductsListPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ContactPage from "./pages/ContactPage";
-import NewProduct from "./components/NewProduct";
 import Cart from "./pages/Cart";
-import EditProductPage from "./pages/EditProductPage";
 import AboutPage from "./pages/AboutPage";
 import Footer from "./components/Footer";
+import ProductForm from "./components/ProductForm";
 
 function App() {
   return (
@@ -25,10 +24,10 @@ function App() {
               element={<ProductDetailsPage />}
             />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/products/newProduct" element={<NewProduct />} />
+            <Route path="/products/newProduct" element={<ProductForm />} />
             <Route
               path="/products/edit/:productId"
-              element={<EditProductPage />}
+              element={<ProductForm />}
             />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/about" element={<AboutPage />} />

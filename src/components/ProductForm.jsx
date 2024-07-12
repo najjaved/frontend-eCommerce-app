@@ -1,5 +1,5 @@
-import { Fragment, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Fragment, useState, useContext, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { ShopContext } from "../helpers/context/shop-context";
 import {
   TextInput,
@@ -14,39 +14,51 @@ import {
   Space
 } from "@mantine/core";
 
-const resetInitialStates = () => {
-  return {
-    category: "",
-    name: "",
-    description: "",
-    price: 0,
-    discount: 0,
-    stock: 0,
-    images: [], // Test for new product: https://lh3.googleusercontent.com/pw/AP1GczMXDRBaA9OxtyAQzf_ZDH7bOt6SUxOAbzuJ2roiVxutahsJeODemVgyYuZgnTLMXB0f7H-VIkIXJ_uDVhyCTvtDVOsB_JzSJPLNnY9h3VPxDW6CS4M3DTpvonNIBL51OVOhYgoYBMjaF74l21LZDKCiCA=w586-h879-s-no-gm?authuser=0
-  };
-};
+const resetInitialStates = () => ({
+  category: "",
+  name: "",
+  description: "",
+  price: 0,
+  discount: 0,
+  stock: 0,
+  images: []
+});
 
-const NewProduct = () => {
-  const { getAllProducts } = useContext(ShopContext);
+const ProductForm = () => {
+  const { getAllProducts, updateProductsData, products } = useContext(ShopContext);
   const navigate = useNavigate();
-  const [newProduct, setNewProduct] = useState(resetInitialStates());
+  const { productId } = useParams();
+  const [product, setProduct] = useState(resetInitialStates());
+
+  useEffect(() => {
+    if (productId) {
+      const existingProduct = products.find((p) => p.id.toString() === productId);
+      if (existingProduct) {
+        setProduct(existingProduct);
+      } else {
+        console.log("Product not found");
+      }
+    }
+  }, [productId, products]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const payload = newProduct;
+    const payload = product;
     console.log("Data sent successfully to backend", payload);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/products`, {
-        method: "POST",
+      const url = `${import.meta.env.VITE_API_URL}/products${productId ? `/${productId}` : ""}`;
+      const method = productId ? "PUT" : "POST";
+      const response = await fetch(url, {
+        method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
       console.log("API response: ", response);
-      if (response.status === 201) {
+      if (response.ok) {
         const newProductData = await response.json();
-        console.log("parsed new product data: ", newProductData);
-        setNewProduct(resetInitialStates()); // reinitialize entries after submitting form & navigate back to the ProductsListPage
+        console.log("Parsed product data: ", newProductData);
+        setProduct(resetInitialStates()); // reinitialize entries after submitting form
         getAllProducts();
         navigate("/products");
       }
@@ -56,23 +68,24 @@ const NewProduct = () => {
   };
 
   const handleChange = (event) => {
-    const currentName = event.target.name; // or extract directly using destructuring: const { name, value } = event.target;
+    const currentName = event.target.name;
     const currentValue = event.target.value;
     if (currentName === "images") {
-      setNewProduct({ ...newProduct, images: [currentValue] }); // handle the image URL as an array
+      setProduct({ ...product, images: [currentValue] });
     } else {
-      setNewProduct({ ...newProduct, [currentName]: currentValue }); // updates the newProduct state object by setting the property with the key of currentName to the value of currentValue.
+      setProduct({ ...product, [currentName]: currentValue });
     }
   };
 
-  const handleCancelAdd = () => {
+  const handleCancel = () => {
     navigate("/products");
   };
+
   return (
     <Fragment>
       <div className="form-page">
         <Title order={3} align="center" mb="lg" style={{ color: '#154B20' }}>
-          New Product
+          {productId ? "Edit Product" : "New Product"}
         </Title>
         <form className="form" onSubmit={handleSubmit}>
           <Grid>
@@ -80,8 +93,8 @@ const NewProduct = () => {
               <Select
                 label="Product Category"
                 name="category"
-                value={newProduct.category}
-                onChange={(value) => setNewProduct({ ...newProduct, category: value })}
+                value={product.category}
+                onChange={(value) => setProduct({ ...product, category: value })}
                 data={[
                   { value: "Herbal Teas", label: "Herbal Teas" },
                   { value: "Homemade Cosmetics", label: "Homemade Cosmetics" },
@@ -95,7 +108,7 @@ const NewProduct = () => {
               <TextInput
                 label="Title"
                 name="name"
-                value={newProduct.name}
+                value={product.name}
                 onChange={handleChange}
                 style={{ width: "100%" }}
               />
@@ -103,8 +116,8 @@ const NewProduct = () => {
               <NumberInput
                 label="Price"
                 name="price"
-                value={newProduct.price}
-                onChange={(value) => setNewProduct({ ...newProduct, price: value })}
+                value={product.price}
+                onChange={(value) => setProduct({ ...product, price: value })}
                 style={{ width: "100%" }}
                 hideControls
               />
@@ -112,8 +125,8 @@ const NewProduct = () => {
               <NumberInput
                 label="Discount"
                 name="discount"
-                value={newProduct.discount}
-                onChange={(value) => setNewProduct({ ...newProduct, discount: value })}
+                value={product.discount}
+                onChange={(value) => setProduct({ ...product, discount: value })}
                 min={0}
                 max={1}
                 step={0.01}
@@ -126,26 +139,24 @@ const NewProduct = () => {
               <TextInput
                 label="Product Image URL"
                 name="images"
-                value={newProduct.images[0]}
+                value={product.images[0]}
                 onChange={handleChange}
                 style={{ width: "100%" }}
               />
-              {newProduct.images.length > 0 && newProduct.images[0] && (
+              {product.images.length > 0 && product.images[0] && (
                 <div className="image-preview">
                   <img
-                    src={newProduct.images[0]}
+                    src={product.images[0]}
                     alt="Product preview"
                     style={{ maxHeight: "200px", maxWidth: "100%" }}
                   />
                 </div>
               )}
-
-
               <Space h="md" />
               <Textarea
                 label="Description"
                 name="description"
-                value={newProduct.description}
+                value={product.description}
                 onChange={handleChange}
                 rows={5}
                 cols={25}
@@ -155,8 +166,8 @@ const NewProduct = () => {
               <NumberInput
                 label="Stock"
                 name="stock"
-                value={newProduct.stock}
-                onChange={(value) => setNewProduct({ ...newProduct, stock: value })}
+                value={product.stock}
+                onChange={(value) => setProduct({ ...product, stock: value })}
                 style={{ width: "100%" }}
                 hideControls
               />
@@ -165,9 +176,9 @@ const NewProduct = () => {
           <Divider my="lg" />
           <Group position="apart">
             <Button type="submit" variant="filled" size="md" radius="md">
-              Save Product
+              {productId ? "Update Product" : "Save Product"}
             </Button>
-            <Button type="button" variant="filled" size="md" radius="md" onClick={handleCancelAdd}>
+            <Button type="button" variant="filled" size="md" radius="md" onClick={handleCancel}>
               Cancel
             </Button>
           </Group>
@@ -175,7 +186,6 @@ const NewProduct = () => {
       </div>
     </Fragment>
   );
-  
 };
 
-export default NewProduct;
+export default ProductForm;
